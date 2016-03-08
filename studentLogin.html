@@ -1,14 +1,12 @@
 <html>
 	<head>
 		<title>homework submission</title>
+		<script src="dropzone.js"></script>
+		<link rel="stylesheet" type="text/css" href="dropzone.css">
 	</head>
 	<body>
-		<div>
-			<input type="file" id="file" name="file[]" multiple/>
-			<output id="list"></output>
-			<h3>Contents of the file:</h3>
-			<pre id="file-content"></pre>
-		</div>
-		<script src="student.js"></script>
+		<div id="drop_zone">Drag files or click</div>
+		<form action="/upload-target" class="dropzone"></form>
+		<!-- <script src="student.js"></script>-->
 	</body>
 </html>
