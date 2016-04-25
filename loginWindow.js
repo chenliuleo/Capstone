@@ -22,6 +22,6 @@ function keydown (event) {
 window.addEventListener('keydown', keydown, false);
 
 // depends on what username and password we might use
-function register (argument) {
-	// body...
+function register () {
+	window.location="register.html";
 }
