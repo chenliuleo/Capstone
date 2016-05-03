@@ -2,9 +2,10 @@ var newPassword;
 var newBannerId;
 var newUserType;
 var newRealName;
+var newUserName;
 
 function submit () {
-	// var newUserName=document.getElementById("newUserName").value;
+	newUserName=document.getElementById("newUserName").value;
 	newPassword=document.getElementById("newPassword").value;
 	newBannerId=document.getElementById("newBanner").value;
 	newUserType=document.getElementById("newUserType").value;
