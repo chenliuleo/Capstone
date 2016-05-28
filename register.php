@@ -7,6 +7,6 @@ if (!$con)
 mysql_select_db("test", $con);
 $username="<script>document.write(newUserName);</script>"
 $userpass="<script>document.write(sha);</script>"
-$bannerid="<script>document.write()"
+$bannerid="<script>document.write();</script>"
 mysql_query("INSERT INTO test ($username)")
 ?>
