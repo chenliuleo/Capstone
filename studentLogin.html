@@ -1,17 +1,17 @@
 <html>
-	<head>
-		<title>homework submission</title>
-		<script src="dropzone.js"></script>
-		<link rel="stylesheet" type="text/css" href="dropzone.css">
-	</head>
-	<body>
-		<form action="upload.php" method="post" enctype="multipart/form-data">
-			please upload file:
-			<input type="file" name="fileToUpload" id="fileToUpload">
-			<input type="submit" value="submit" name="submit">
-		</form>
-		<!--<div id="drop_zone">Drag files or click</div>-->
-		<form action="/upload-target" class="dropzone"></form>
-		<!-- <script src="student.js"></script>-->
-	</body>
+  <head>
+    <title>homework submission</title>
+    <script src="dropzone.js"></script>
+    <link rel="stylesheet" type="text/css" href="dropzone.css">
+  </head>
+  <body>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      please upload file:
+      <input type="file" name="fileToUpload" id="fileToUpload">
+      <input type="submit" value="submit" name="submit">
+    </form>
+    <div id="drop_zone">Drag files or click</div>
+    <form action="/upload-target" class="dropzone"></form>
+    <!-- <script src="student.js"></script>-->
+  </body>
 </html>
