@@ -8,7 +8,7 @@ function validate () {
 	window.location="mainpage.html";
     }
     else if (username=="instructor" && password=="instructor"){
-	window.location="instructorLogin.html";
+	window.location="fMainpage.html";
     }
     else {
 	alert("invalid username or password")
