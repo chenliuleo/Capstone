@@ -1,0 +1,37 @@
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>Homework Submission System</title>
+  </head>
+  <h4>Term: </h4>
+  <h4>Course Number: </h4>
+  <h4>Course Name: </h4>
+  <h4>Section: </h4>
+ <dl>
+   <ul>
+     <p>
+       <table border="1" cellpadding="6" cellspacing="2">
+         <thead>
+           <dd><tr>
+               <th width = "100"><b>Number </b></td>
+<th width = "100"><b>Title</b></td>
+<th width = "100"><b>Dealine</b></td>
+<th width = "150"><b>Point value</b></td>
+<th width = "100"><b>Score</b></td>
+<th width = "100"><b>Solution</b></td>
+</tr></dd>
+
+<dd><tr>
+    <th width = "100"><a href="">hw01</a> </td>
+</tr></dd>
+
+<dd><tr>
+     <th width = "100"><b> </b></td>
+ <th width = "100"><b> </b></td>
+ <th width = "100"><b>total </b></td>
+ <th width = "150"><b>900 </b></td>
+ <th width = "100"><b>1000 </b></td>
+ <th width = "100"><b>90%</b></td>
+</tr></dd>
+</html>

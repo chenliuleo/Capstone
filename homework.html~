@@ -1,9 +1,9 @@
-
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
   <head>
     <title>Homework Submission System</title>
   </head>
-  <h1>Due: <br></h1>
- 
-</html>
+  <h4>Term: </h4>
+  <h4>Course Number: </h4>
+  <h4>Course Name: </h4>
+  <h4>Section: </h4>
