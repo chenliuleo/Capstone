@@ -1,13 +1,17 @@
-<html>
-  <head>
-    <title>Add Homework</title>
-    <script type="text/javascript"> 
-function DateSelector(selYear, selMonth, selDay) { 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf8"> 
+<title>Add Homework</title> 
+<script type="text/javascript"> 
+function DateSelector(selYear, selMonth, selDay,selHour,selMiniute,selAMPM){
 this.selYear = selYear; 
 this.selMonth = selMonth; 
 this.selDay = selDay; 
 this.selYear.Group = this; 
-this.selMonth.Group = this; 
+this.selMonth.Group = this;
+this.selHour = selHour;
+this.selMiniute = selMiniute;
+this.selAMPM = selAMPM; 
 // 给年份、月份下拉菜单添加处理onchange事件的函数 
 if (window.document.all != null) // IE 
 { 
@@ -29,10 +33,31 @@ var dt = new Date();
 this.InitSelector(dt.getFullYear(), dt.getMonth() + 1, dt.getDate()); 
 } 
 } 
+DateSelector.prototype.MinHour = 1;
+DateSelector.prototype.MaxHour = 12;
+DateSelector.prototype.MinMiniute = 0;
+DateSelector.prototype.MaxMiniute = 59;
+DateSelector.prototype.InitHourSelect = function () {
+for (var i = this.MaxHour; i >= this.MinHour; i--) {
+var op = window.document.createElement("OPTION");
+op.value = i;
+op.innerHTML = i;
+this.selHour.appendChild(op);
+}
+}
+DateSelector.prototype.InitMiniuteSelect = function () {
+for (var i = this.MaxMiniute; i >= this.MinMiniute; i--) {
+var op = window.document.createElement("OPTION");
+op.value = i;
+op.innerHTML = i;
+this.selMiniute.appendChild(op);
+}
+}
+
 // 增加一个最大年份的属性 
-DateSelector.prototype.MinYear = 1900; 
+DateSelector.prototype.MinYear = 2016; 
 // 增加一个最大年份的属性 
-DateSelector.prototype.MaxYear = (new Date()).getFullYear(); 
+DateSelector.prototype.MaxYear = 2020;
 // 初始化年份 
 DateSelector.prototype.InitYearSelect = function () { 
 // 循环添加OPION元素到年份select对象中 
@@ -111,14 +136,32 @@ this.InitDaySelect();
 // 设置天数初始值 
 this.selDay.selectedIndex = day - 1; 
 } 
-</script>
-  </head>
+</script> 
+</head> 
+<body> 
   <h4>Term: </h4>
   <h4>Course Number: </h4>
   <h4>Course Name: </h4>
   <h4>Section: </h4>
   <h4>Due date: </h4>
-  <select id="selYear"><option value="2016">2016</option></select>
-  <select id="selMonth"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>
-  <select id="selDay"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
-</html>
+<select id="selYear"></select> 
+<select id="selMonth"></select> 
+<select id="selDay"></select>
+<select id="selHour"></select>
+<select id="selMiniute"></select>
+<select id="selAMPM"></select> 
+<script type="text/javascript"> 
+var selYear = window.document.getElementById("selYear"); 
+var selMonth = window.document.getElementById("selMonth"); 
+var selDay = window.document.getElementById("selDay"); 
+var selHour = window.document.getElementById("selHour");
+var selMiniute = window.document.getElementById("selMiniute");
+var selAMPM = window.document.getElementById("selAMPM");
+// 新建一个DateSelector类的实例，将三个select对象传进去 
+new DateSelector(selYear, selMonth, selDay, selHour, selMiniute, selAMPM, 2016, 2, 29, 11, 59, PM); 
+// 也可以试试下边的代码 
+// var dt = new Date(2004, 1, 29, 11, 59, PM); 
+// new DateSelector(selYear, selMonth ,selDay, selHour, selMiniute, selAMPM, dt); 
+</script> 
+</body> 
+</html> 
