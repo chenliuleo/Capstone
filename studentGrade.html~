@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Homework Submission System</title>
+    <title>Student Information</title>
   </head>
    <h4>Term: </h4>
    <h4>Course Number: </h4>
@@ -44,8 +44,5 @@
      </p>
      </ul>
    </dl>
-   <a href="./studentGrade.html">student grade</a>
-   <br>
-   <a href="./addHomework.html">add homework</a>
    
 </html>
