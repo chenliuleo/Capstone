@@ -9,7 +9,7 @@ import smtplib
 import os.path
 
 # set these
-UPLOAD_DIR="~lchen22/WWW/upload/"
+UPLOAD_DIR="/export/mathcs/home/student/l/lchen22/WWW/upload/"
 
 # dont mess with anything below this line
 print "Content-Type: text/html\n"   # HTML is following ; don't forget the extra newline
