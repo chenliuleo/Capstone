@@ -1,0 +1,6 @@
+<html>
+  <head>
+    <title>Faculty List</title>
+  </head>
+  <button type="button">add student</button>
+  <button type="button">add faculty</button>

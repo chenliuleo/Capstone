@@ -10,6 +10,9 @@ function validate () {
     else if (username=="instructor" && password=="instructor"){
 	window.location="fMainpage.html";
     }
+    else if (username=="admin"&&password=="admin"){
+	window.location="AMainpage.html";
+    }
     else {
 	alert("invalid username or password")
     }
