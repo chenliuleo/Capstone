@@ -1,9 +1,11 @@
 // validate user name and password
 // By default, for student, username: student, password: student
 // for instructor, username: instructor, password: instructor
+var username;
+var password;
 function validate () {
-    var username=document.getElementById("username").value;
-    var password=document.getElementById("password").value;
+    username=document.getElementById("username").value;
+    password=document.getElementById("password").value;
     if (username=="student" && password=="student"){
 	window.location="mainpage.html";
     }
