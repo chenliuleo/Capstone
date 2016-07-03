@@ -1,27 +1,12 @@
 <!DOCTYPE html>
-<?php
-$cookie_name = "user";
-$cookie_value = "student";
-setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); 
-// 86400 = 1 day
-?>
 <html>
   <head>
     <title>Login Window</title>
+
     <script src="loginWindow.js"></script>
     <link rel="stylesheet" type="text/css" href="loginWindow.css">
   </head>
   <body>
-    <?php
-    if(!isset($_COOKIE[$cookie_name])) {
-       echo "Cookie named '" . $cookie_name . "' is not set!";
-    } 
-    else {
-       echo "Cookie '" . $cookie_name . "' is set!<br>";
-       echo "Value is: " . $_COOKIE[$cookie_name];
-    }
-    ?>
-    
     <div class="container">
       <div class="main">
 	<h2>Homework Submission System</h2>
@@ -33,5 +18,6 @@ setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 	<input type="button" value="Register" id="register" onclick="register()">
       </div>
     </div>
+
   </body>
 </html>
