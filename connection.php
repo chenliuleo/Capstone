@@ -1,8 +1,16 @@
 <?php
-$servername = "turing.slu.edu";
-$username = "csp_homework";
-$password = "P7a4H^3zHomework";
-$dbname = "csp_homework";	
+$connection = ssh2_connection("turing.slu.edu",22);
+if (ssh2_auth_password($connection, "sshusername", "password")){
+  echo "Authentication Successful!\m";
+}
+else{
+  die("Authentication Failed...");
+}
+$stream = ssh2_exec($connection, 'mysql -ucsp_homework -pP7a4H^3zHomework;use csp_homework;');
+//$servername = "turing.slu.edu";
+//$username = "csp_homework";
+//$password = "P7a4H^3zHomework";
+//$dbname = "csp_homework";	
 	
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
