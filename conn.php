@@ -1,15 +1,17 @@
 <?php
 /*****************************
-*Êý¾Ý¿âÁ¬½Ó
+*æ•°æ®åº“è¿žæŽ¥
 *****************************/
 
-$conn = $mysql_connect("turing.slu.edu","csp_homework","P7a4H^3zHomework");
+$conn = mysql_connect("127.0.0.1","csp_homework","P7a4H^3zHomework");
 if (!$conn){
-	die("Á¬½ÓÊý¾Ý¿âÊ§°Ü£º" . mysql_error());
+	die("è¿žæŽ¥æ•°æ®åº“å¤±è´¥ï¼š" . mysql_error());
 }
+echo "database connection successful!";
+mysql_select_db("csp_homework");
 //mysql_select_db("test", $conn);
-//×Ö·û×ª»»£¬¶Á¿â
+//å­—ç¬¦è½¬æ¢ï¼Œè¯»åº“
 //mysql_query("set character set 'gbk'");
-//Ð´¿â
+//å†™åº“
 //mysql_query("set names 'gbk'");
 ?>

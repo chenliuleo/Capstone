@@ -1,7 +1,8 @@
+ 
 <?php
 session_start();
 
-//×¢ÏúµÇÂ¼
+//æ³¨é”€ç™»å½•
 if($_GET['action'] == "logout"){
 	unset($_SESSION['banner_id']);
 	unset($_SESSION['username']);
@@ -9,19 +10,19 @@ if($_GET['action'] == "logout"){
 	exit;
 }
 
-//µÇÂ¼
+//ç™»å½•
 if(!isset($_POST['submit'])){
 	exit('Permission denied!');
 }
 $username = htmlspecialchars($_POST['username']);
 $password = sha1($_POST['password']);
 
-//°üº¬Êý¾Ý¿âÁ¬½ÓÎÄ¼þ
+//åŒ…å«æ•°æ®åº“è¿žæŽ¥æ–‡ä»¶
 include('conn.php');
-//¼ì²âÓÃ»§Ãû¼°ÃÜÂëÊÇ·ñÕýÈ·
+//æ£€æµ‹ç”¨æˆ·ååŠå¯†ç æ˜¯å¦æ­£ç¡®
 $check_query = mysql_query("select username from users where username='$username' and password='$password' limit 1");
 if($result = mysql_fetch_array($check_query)){
-	//µÇÂ¼³É¹¦
+	//ç™»å½•æˆåŠŸ
 	$_SESSION['username'] = $username;
 	$_SESSION['banner_id'] = $result['banner_id'];
 	echo 'Login success! <br />';

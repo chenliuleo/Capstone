@@ -1,13 +1,14 @@
+ 
 <?php
 session_start();
 
-//¼ì²âÊÇ·ñµÇÂ¼£¬ÈôÃ»µÇÂ¼Ôò×ªÏòµÇÂ¼½çÃæ
+//æ£€æµ‹æ˜¯å¦ç™»å½•ï¼Œè‹¥æ²¡ç™»å½•åˆ™è½¬å‘ç™»å½•ç•Œé¢
 if(!isset($_SESSION['username'])){
 	header("Location:login.html");
 	exit();
 }
 
-//°üº¬Êý¾Ý¿âÁ¬½ÓÎÄ¼þ
+//åŒ…å«æ•°æ®åº“è¿žæŽ¥æ–‡ä»¶
 include('conn.php');
 $banner_id = $_SESSION['banner_id'];
 $username = $_SESSION['username'];
