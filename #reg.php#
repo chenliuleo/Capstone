@@ -9,12 +9,12 @@
 <body>
 <?php
 // define variables and set to empty values
-$userNameErr = $emailErr = $userTypeErr = $passwordErr = $first_nameErr = $last_nameErr = $banneridErr = "";
-$userName = $email = $userType = $password = $bannerid = $first_name =$last_name = "";
+$nameErr = $emailErr = $userTypeErr = $passwordErr = $first_nameErr = $last_nameErr = $banneridErr = "";
+$name = $email = $userType = $password = $bannerid = $first_name =$last_name = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["userName"])) {
-    $userNameErr = " username is required";
+  if (empty($_POST["name"])) {
+    $userNameErr = " name is required";
   } else {
     $userName = test_input($_POST["userName"]);
     // check if name only contains letters and whitespace
