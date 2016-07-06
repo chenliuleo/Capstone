@@ -91,6 +91,7 @@ function test_input($data){
 
 <h2>User Sign Up</h2>
 <p><span class="error">* required field.</span></p>
+<!--<form method="post" action="db.php">-->
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   Username: <input type="text" name="username" value="<?php echo $username;?>">
   <span class="error">* <?php echo $usernameErr;?></span>
@@ -119,19 +120,10 @@ function test_input($data){
 </form>
 
 <?php
-echo "<h2>Your Input:</h2>";
-echo $bannerid;
-echo "<br>";
+echo "output: ";
 echo $username;
 echo "<br>";
-echo $email;
-echo "<br>";
-echo $first_name;
-echo "<br>";
-echo $last_name;
-echo "<br>";
-echo $userType;
-echo "<br>";
+include('db.php');
 ?>
 </body>
 </html>
