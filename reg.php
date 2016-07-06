@@ -9,17 +9,17 @@
 <body>
 <?php
 // define variables and set to empty values
-$userNameErr = $emailErr = $userTypeErr = $passwordErr = $first_nameErr = $last_nameErr = $banneridErr = "";
-$userName = $email = $userType = $password = $bannerid = $first_name =$last_name = "";
+$usernameErr = $emailErr = $userTypeErr = $passwordErr = $first_nameErr = $last_nameErr = $banneridErr = "";
+$username = $email = $userType = $password = $bannerid = $first_name =$last_name = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["userName"])) {
-    $userNameErr = " username is required";
+  if (empty($_POST["username"])) {
+    $usernameErr = " username is required";
   } else {
-    $userName = test_input($_POST["userName"]);
+    $userName = test_input($_POST["username"]);
     // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z]+$/",$userName)) {
-      $userNameErr = "Only letters and white space allowed";
+    if (!preg_match("/^[a-zA-Z]+$/",$username)) {
+      $usernameErr = "Only letters and white space allowed";
     }
   }
   
@@ -92,8 +92,8 @@ function test_input($data){
 <h2>User Sign Up</h2>
 <p><span class="error">* required field.</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-  Username: <input type="text" name="userName" value="<?php echo $userName;?>">
-  <span class="error">* <?php echo $userNameErr;?></span>
+  Username: <input type="text" name="username" value="<?php echo $username;?>">
+  <span class="error">* <?php echo $usernameErr;?></span>
   <br><br>
   Password: <input type="password" name="password" value="<?php echo $password;?>">
   <span class="error">* <?php echo $passwordErr;?></span>
@@ -122,7 +122,7 @@ function test_input($data){
 echo "<h2>Your Input:</h2>";
 echo $bannerid;
 echo "<br>";
-echo $uerName;
+echo $username;
 echo "<br>";
 echo $email;
 echo "<br>";
