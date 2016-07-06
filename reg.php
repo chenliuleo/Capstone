@@ -11,7 +11,7 @@ $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $user_type = $_POST['userType'];
 //echo $email;
-echo $user_type;
+//echo $user_type;
 //注册信息判断
 if(!preg_match('/^[\w\x80-\xff]{3,15}$/', $username)){
 	exit('Error: Username does not qualified.<a href="javascript:history.back(-1);">Back</a>');
