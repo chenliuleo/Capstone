@@ -101,11 +101,15 @@ window.alert(usertype);
 <p/>
 <p>
 <label for="user_type" class="label">User Type:</label>
-<input type="text" name="user_type" id="user_type"/>
-<select name="usertype" id="user_type">
+<!--<input type="text" name="user_type" id="user_type"/>-->
+<input type="radio" name="userType" <?php if (isset($userType)&&$userType=="student") echo "checked";?> value="student">Student
+<input type="radio" name="userType" <?php if (isset($userType)&&$userType=="faculty") echo "checked";?>value="faculty">Faculty
+<span class="error">* <?php echo $userTypeErr;?></span>
+<br><br>
+<!--<select name="usertype" id="user_type">
   <option value="Student">Student</option>
   <option value="Faculty">Faculty</option>
-</select>
+</select>-->
 <!--<script>
   $(document).ready(function(){
     $("#usertype").change(function(){

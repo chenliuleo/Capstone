@@ -9,7 +9,7 @@ $email = $_POST['email'];
 $bannerid = $_POST['bannerid'];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
-$user_type = $_POST['user_type'];
+$user_type = $_POST['userType'];
 //echo $email;
 echo $user_type;
 //注册信息判断
