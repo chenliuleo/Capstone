@@ -1,25 +1,22 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<!--<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">-->
 <html>
   <head>
     <title>Homework Submission System</title>
   </head>
-    <center>
+<!--    <center>
 	<br>
       <h1>Homwork Submission System<br>
       </h1>
-    </center>
-
-  <style>
+    </center>-->
+  <body>
+    <?php include('title.php'); ?>
+<!--  <style>
   #name {
     position: fixed;
     bottom: 0;
     right: 0;
   }
   </style>
-  <div id = "name">student name</div>
-  <script>
-    document.getElementById("newUserName").value
-    document.getElementById("newRealName").value
-  </script>
+  <div id = "name"><?php echo $row['first_name'], ' ', $row['last_name']; ?></div>-->
   </body>
 </html>

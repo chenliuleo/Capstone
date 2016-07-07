@@ -1,18 +1,16 @@
-<html>
-  <head>
-    <title> Course Registration </title>
-  </head>
-  <body>
-    <center> <h1> Course Registration </h1> <center>
-    <p>
-      Semester:
-      <select name="snedmessage">
-        <option selected>2016</option>
-	<option>2017</option>
-	<option>2018</option>
-      </select>
-      <input type="submit" value="Submit">
-      <input type="reset" value="Reset">
-    </p>
-  </body>
- </html>
+    <?php
+      session_start();
+      //包含数据库连接文件
+
+      
+      $year = $_POST['year'];
+      $semester = $_POST['semester'];
+      //echo $year;
+      //echo $semester;
+      include('conn.php');
+      $courses_query = mysql_query("select * from courses where year='$year' and semester='$semester'");
+      //echo $courses_query;
+      $row = mysql_fetch_array($courses_query);
+      echo $row['course_name'];
+      echo $row['course_section'];
+    ?>

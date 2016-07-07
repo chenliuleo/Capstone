@@ -14,20 +14,10 @@ include('conn.php');
 $username = $_SESSION['username'];
 $user_query = mysql_query("select * from users where username='$username' limit 1");
 $row = mysql_fetch_array($user_query);
-echo 'User information:<br />';
+echo 'Homework Submission System<br />';
 echo 'Banner ID: ',$row['banner_id'],'<br />';
-echo 'Username: ',$username,'<br />';
+echo 'Name: ',$row['first_name'],' ',$row['last_name'],'<br />';
 //echo $user_query['email'],'<br />';
-echo 'Email address: ',$row['email'],'<br />';
+//echo 'Email address: ',$row['email'],'<br />';
 echo 'User type: ',$row['usertype'],'<br />';
-echo '<a href="login.php?action=logout">Logout</a><br />';
-//$type = mysql_query("select user_type from users where username=$username");
-if($row['usertype'] = 'Student')
-{
-  echo 'Click here to <a href="newMainPage.php">Main page</a>';
-}
-else
-{
-  echo 'Click here to <a href="fMainpage.html">Main page</a>';
-}
-?>
+//echo '<a href="login.php?action=logout">Logout</a><br />';
