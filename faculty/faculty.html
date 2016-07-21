@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Homework Submission System</title>
+    <script src="add_delete.js"></script>
   </head>
    <h4>Term: </h4>
    <h4>Course Number: </h4>
@@ -11,7 +12,7 @@
    <dl>
      <ul>
      <p>
-       <table border="1" cellpadding="6" cellspacing="2">
+       <table id="homework" border="1" cellpadding="6" cellspacing="2">
          <thead>
            <dd><tr>
                <th width = "100"><b>Number </b></th>
@@ -21,7 +22,10 @@
 	       <th width = "100"><b>Score</b></th>
 	       <th width = "100"><b>Solution</b></th>
 	   </tr></dd>
-	   </table>
+       </table>
+       <br>
+       <button onclick="CreateRow()">Update homework</button>
+       <button onclick="DeleteRow()">Delete row</button>
      </p>
      </ul>
    </dl>

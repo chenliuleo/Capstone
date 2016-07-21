@@ -22,12 +22,12 @@ echo 'Email address: ',$row['email'],'<br />';
 echo 'User type: ',$row['usertype'],'<br />';
 echo '<a href="login.php?action=logout">Logout</a><br />';
 //$type = mysql_query("select user_type from users where username=$username");
-if($row['usertype'] = 'Student')
+if($row['usertype'] == 'Student')
 {
-  echo 'Click here to <a href="newMainPage.php">Main page</a>';
+  echo 'Click here to <a href="./student/mainpage.html">Main page</a>';
 }
 else
 {
-  echo 'Click here to <a href="fMainpage.html">Main page</a>';
+  echo 'Click here to <a href="./faculty/fMainpage.html">Main page</a>';
 }
 ?>

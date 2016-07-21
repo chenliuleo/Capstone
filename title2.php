@@ -13,6 +13,6 @@
     <center>
       <h1>Homework Submission System <br></h1>
     </center>
-    <div id="name"><?php echo $row['first_name'],' ',$row['last_name'];?></div>
+
   </body>
 </html>
