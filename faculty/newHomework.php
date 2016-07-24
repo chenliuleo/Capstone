@@ -1,14 +1,15 @@
 <html>
 <head>
 <?php
-$number = $_POST['number'];
+$description=$_POST['description'];
 $title = $_POST['title'];
 $deadline = $_POST['deadline'];
 $point = $_POST['point'];
-$score = $_POST['score'];
-echo "number: ",$number;
+$date=date("Y-m-d H:i:s",strtotime($deadline));
+
 echo " title: ",$title;
 echo " deadline: ",$deadline;
+echo "date: ",$date;
 echo " point: ",$point;
 echo " score: ",$score;
 echo " success!";
