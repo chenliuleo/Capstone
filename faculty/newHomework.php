@@ -12,7 +12,7 @@ echo " deadline: ",$deadline;
 echo " point: ",$point;
 echo " score: ",$score;
 echo " success!";
-include ('conn.php');
+include ('../conn.php');
 $sql = "INSERT INTO homework(deadline) values('$deadline')";
 ?>
 </head>
