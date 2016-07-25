@@ -18,11 +18,11 @@ echo 'User information:<br />';
 echo 'Banner ID: ',$row['banner_id'],'<br />';
 echo 'Username: ',$username,'<br />';
 //echo $user_query['email'],'<br />';
-echo 'Email address: ',$row['email'],'<br />';
-echo 'User type: ',$row['usertype'],'<br />';
+//echo 'Email address: ',$row['email'],'<br />';
+echo 'User type: ',$row['user_type'],'<br />';
 echo '<a href="login.php?action=logout">Logout</a><br />';
 //$type = mysql_query("select user_type from users where username=$username");
-if($row['usertype'] == 'Student')
+if($row['user_type'] == 'Student')
 {
   echo 'Click here to <a href="./student/mainpage.html">Main page</a>';
 }

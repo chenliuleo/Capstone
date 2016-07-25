@@ -19,5 +19,5 @@ echo 'Banner ID: ',$row['banner_id'],'<br />';
 echo 'Name: ',$row['first_name'],' ',$row['last_name'],'<br />';
 //echo $user_query['email'],'<br />';
 //echo 'Email address: ',$row['email'],'<br />';
-echo 'User type: ',$row['usertype'],'<br />';
+echo 'User type: ',$row['user_type'],'<br />';
 //echo '<a href="login.php?action=logout">Logout</a><br />';
