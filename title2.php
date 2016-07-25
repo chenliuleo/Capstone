@@ -12,8 +12,8 @@
     }
     #content img{
       position: absolute;
-      top: 0px;
-      right: 0px;
+      top: 5px;
+      right: 5px;
       width: 100;
       height: 100;
     }
