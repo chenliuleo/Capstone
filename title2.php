@@ -7,12 +7,17 @@
     position:fixed;
 	      right:0;
     }
+    #top{
+
+    }
   </style>
   <body>
     <?php include('title.php');?>
     <center>
       <h1>Homework Submission System <br></h1>
-      <img src="SLU_Logo.jpg">
+      <form id="top" method="post" action="">
+        <img src="SLU_Logo.jpg" align=right width="50" height="100">
+      </form>
     </center>
 
   </body>
