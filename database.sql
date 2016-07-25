@@ -18,8 +18,8 @@ CREATE TABLE courses (
 	course_year NVARCHAR(4),
 	semester NVARCHAR(6),
 	start_date DATE,
-	end_date DATE,
-) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+	end_date DATE
+)DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE homework (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -29,12 +29,12 @@ CREATE TABLE homework (
 	deadline DATETIME NOT NULL,
 	active BOOLEAN DEFAULT TRUE,
 	FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
-) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+)DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE files (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	filename NVARCHAR(256) NOT NULL,
-	submit_time DATETIME DEFAULT NOW(),
+	submit_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	student_id INT,
 	hw_id INT,
 	FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE,
@@ -52,5 +52,5 @@ CREATE TABLE course_students (
 	course_id INT,
 	student_id INT,
 	FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
-	FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE,
+	FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE
 );
