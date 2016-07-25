@@ -5,7 +5,6 @@ if(!isset($_POST['submit'])){
 }
 $username = $_POST['username'];
 $password = $_POST['password'];
-$email = $_POST['email'];
 $bannerid = $_POST['bannerid'];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
@@ -19,9 +18,9 @@ if(!preg_match('/^[\w\x80-\xff]{3,15}$/', $username)){
 if(strlen($password) < 8){
 	exit('Error: Password length does not qualified.<a href="javascript:history.back(-1);">Back</a>');
 }
-if(!preg_match('/^[a-zA-Z0-9]+@slu.edu$/', $email)){
-	exit('Error: Email address does not qualified.<a href="javascript:history.back(-1);">Back</a>');
-}
+//if(!preg_match('/^[a-zA-Z0-9]+@slu.edu$/', $email)){
+//	exit('Error: Email address does not qualified.<a href="javascript:history.back(-1);">Back</a>');
+//}
 if(!preg_match('/^000[0-9]{6}$/', $bannerid)){
 	exit('Error: Banner ID does not qualified.<a href="javascript:history.back(-1);">Back</a>');
 }
@@ -54,16 +53,16 @@ if(mysql_fetch_array($check_query)){
 	exit;
 }
 echo "bannerid check passed!";
-$check_query = mysql_query("select email from users where email='$email' limit 1");
-if(mysql_fetch_array($check_query)){
-	echo 'Error: Email address ',$email,' exists.<a href="javascript:history.back(-1);">Back</a>';
-	exit;
-}
-echo "email check passed!";
+//$check_query = mysql_query("select email from users where email='$email' limit 1");
+//if(mysql_fetch_array($check_query)){
+//	echo 'Error: Email address ',$email,' exists.<a href="javascript:history.back(-1);">Back</a>';
+//	exit;
+//}
+//echo "email check passed!";
 //写入数据
 $password = sha1($password);
 echo "password hashed!";
-$sql = "INSERT INTO users(username,password,email,banner_id,first_name,last_name,usertype)VALUES('$username','$password','$email','$bannerid','$first_name','$last_name','$user_type')";
+$sql = "INSERT INTO users(username,password,banner_id,first_name,last_name,user_type)VALUES('$username','$password','$bannerid','$first_name','$last_name','$user_type')";
 echo "mysql query made!";
 if(mysql_query($sql,$conn)){
 	exit('Sign up success! Click here<a href="login.html">to login</a>');

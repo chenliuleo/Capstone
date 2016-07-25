@@ -4,10 +4,12 @@ USE csp_homework;
 
 CREATE TABLE users (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	email_creds VARCHAR(32) NOT NULL UNIQUE, -- credantials only (like gpeter12, not gpeter12@slu.edu)
+	username VARCHAR(32) NOT NULL UNIQUE, -- credantials only (like gpeter12, not gpeter12@slu.edu)
 	first_name NVARCHAR(32),
 	last_name NVARCHAR(32),
-	status ENUM('student', 'faculty') -- student = 1, faculty = 2
+	password NVARCHAR(40),
+	banner_id NVARCHAR(9),
+	user_type ENUM('Student', 'Faculty') -- student = 1, faculty = 2
 );
 
 CREATE TABLE courses (
