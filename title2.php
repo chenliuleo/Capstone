@@ -7,17 +7,24 @@
     position:fixed;
 	      right:0;
     }
-    #top{
-
+    #content: {
+      position: relative;
+    }
+    #content img{
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 100;
+      height: 100;
     }
   </style>
   <body>
     <?php include('title.php');?>
     <center>
       <h1>Homework Submission System <br></h1>
-      <form id="top" method="post" action="">
-        <img src="SLU_Logo.jpg" align=right width="50" height="100">
-      </form>
+      <div id="content">
+        <img src="SLU_Logo.jpg">
+      </div>
     </center>
 
   </body>
