@@ -21,7 +21,7 @@
   <body>
     <?php include('title.php');?>
     <center>
-      <h1>Homework Submission System <br></h1>
+      <h1><font color="blue">Homework Submission System</font><br></h1>
       <div id="content">
         <img src="SLU_Logo.jpg">
       </div>
