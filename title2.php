@@ -12,6 +12,7 @@
     <?php include('title.php');?>
     <center>
       <h1>Homework Submission System <br></h1>
+      <img src="SLU_Logo.jpg">
     </center>
 
   </body>
