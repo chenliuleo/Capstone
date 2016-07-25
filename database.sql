@@ -15,6 +15,8 @@ CREATE TABLE courses (
 	name NVARCHAR(8) NOT NULL,
 	section NVARCHAR(2) NOT NULL,
 	description TEXT,
+	course_year NVARCHAR(4),
+	semester NVARCHAR(6),
 	start_date DATE,
 	end_date DATE,
 ) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
