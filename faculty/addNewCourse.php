@@ -14,14 +14,19 @@ echo "<table border='1'>
 <th>Year</th>
 <th>Select</th>
 </tr>";
+echo "<form method=\"get\" action=\"checkbox.php\">";
 while($row = mysql_fetch_array($query))
   {
   echo "<tr>";
   echo "<td>" . $row['name'] . "." . $row['section'] . "</td>";
   echo "<td>" . $row['semester'] . "</td>";
   echo "<td>" . $row['course_year'] . "</td>";
-  echo "<td><input type=\"CHECKBOX\" name=\"newCourse[]\" value=\"$row[id]\"></td>";
+  echo "<td><input type=\"CHECKBOX\" name=\"newCourse[]\" id=\"newCourse\" value=\"$row[id]\"></td>";
   echo "</tr>";
   }
-echo "</table>"
+echo"</table>";
+echo "<input type=\"submit\" name=\"submit\" value=\"Submit\">";
+echo "</form>"; 
+
+ 
 ?>
