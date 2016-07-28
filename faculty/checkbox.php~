@@ -1,0 +1,9 @@
+<?php
+/*if (isset($_POST['newCourse[]']) && $_POST['newCourse[]]=='Yes'){
+  echo "selected";
+}
+else{
+  echo "not selected";
+}*/
+
+?>
