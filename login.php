@@ -28,6 +28,7 @@ if($result = mysql_fetch_array($check_query)){
 	echo 'Login success! <br />';
 	echo $username,' Welcome!This is <a href="my.php">Home page</a><br />';
 	echo 'Click here to <a href="login.php?action=logout">logoff</a><br />';
+	
 	exit;
 } else {
 	exit('Login failed! Click here <a href="javascript:history.back(-1);">back</a> Try again');

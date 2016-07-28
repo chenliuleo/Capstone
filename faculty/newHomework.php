@@ -1,6 +1,7 @@
 <html>
 <head>
 <?php
+session_start();
 $description=$_POST['description'];
 $title = $_POST['title'];
 $deadline = $_POST['deadline'];
