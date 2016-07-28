@@ -15,7 +15,7 @@ $username = $_SESSION['username'];
 $user_query = mysql_query("select * from users where username='$username' limit 1");
 $row = mysql_fetch_array($user_query);
 //echo 'Homework Submission System<br />';
-echo 'Banner ID: ',$row['banner_id'],'<br />';
+echo '<i style="color:blue;">Banner ID: ',$row['banner_id'],'<br />';
 echo 'Name: ',$row['first_name'],' ',$row['last_name'],'<br />';
 //echo $user_query['email'],'<br />';
 //echo 'Email address: ',$row['email'],'<br />';

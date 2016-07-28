@@ -7,11 +7,24 @@
     position:fixed;
 	      right:0;
     }
+    #content: {
+      position: relative;
+    }
+    #content img{
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 100;
+      height: 120;
+    }
   </style>
   <body>
     <?php include('title.php');?>
     <center>
-      <h1>Homework Submission System <br></h1>
+      <h1><font color="blue">Homework Submission System</font><br></h1>
+      <div id="content">
+        <img src="SLU_Logo.jpg">
+      </div>
     </center>
 
   </body>

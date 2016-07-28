@@ -15,7 +15,8 @@ echo "<table border='1'>
 <th>Year</th>
 <th>Select</th>
 </tr>";
-while($row)
+echo "<form method=\"get\" action=\"checkbox.php\">";
+while($row = mysql_fetch_array($query))
   {
   echo "<tr>";
   echo "<td>" . $row['name'] . "." . $row['section'] . "</td>";
@@ -26,6 +27,10 @@ while($row)
   }
 echo "</table>"
 
-echo 
-//$row['id']=$_POST['newCourse[]'];
+  }
+echo"</table>";
+echo "<input type=\"submit\" name=\"submit\" value=\"Submit\">";
+echo "</form>"; 
+
+ 
 ?>
