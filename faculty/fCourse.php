@@ -19,7 +19,8 @@
  {
   $course_detail = mysql_query("select name,section,semester,course_year from courses where id='$cid'");
   $cdetail = mysql_fetch_array($course_detail);
-  echo "<a href=\\"facultyCourse.php\\">$cdetail['name']</a>";
+  echo $cdetail;
+  /*echo "<a href=\\"facultyCourse.php\\">$cdetail['name']</a>";*/
   }
  ?>
  </body>
