@@ -13,14 +13,14 @@
  $row = mysql_fetch_array($user_query);
  $id = $row['id'];
  echo $id;
- /*$query = mysql_query("select course_id from courses where faculty_id='$id'");
+ $query = mysql_query("select course_id from courses_faculty where faculty_id='$id'");
  $course_id = mysql_fetch_array($query);
  foreach($course_id as $cid)
  {
   $course_detail = mysql_query("select name,section,semester,course_year from courses where id='$cid'");
   $cdetail = mysql_fetch_array($course_detail);
   echo "<a href=\\"facultyCourse.php\\">$cdetail['name']</a>";
-  }*/
+  }
  ?>
  </body>
  </html>
