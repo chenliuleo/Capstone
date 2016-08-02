@@ -14,9 +14,11 @@
  $course_id = mysql_fetch_array($query);
  foreach($course_id as $cid)
  {
-  $course_detail = mysql_query("select name,section,semester,course_year from courses where id='$cid'");
+  $course_detail = mysql_query("select id,name,section,semester,course_year from courses where id='$cid'");
   $cdetail = mysql_fetch_array($course_detail);
-  echo "<a href=\"faculty.html\" target=\"main\">12345</a><br>";
+  $var = $cdetail['id'];
+  $temp = $cdetail['name'] . "." . $cdetail['section'] . " " . $cdetail['semester'] . $cdetail['course_year'];
+  echo "<a href=\"facultyCourse.php?id=$var\" target=\"main\">$temp</a><br>";
   }
  ?>
  </body>

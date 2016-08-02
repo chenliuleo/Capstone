@@ -3,10 +3,29 @@
     <title>Homework Submission System</title>
     <script src="add_delete.js"></script>
   </head>
-   <h4>Term: </h4>
-   <h4>Course Number: </h4>
-   <h4>Course Name: </h4>
-   <h4>Section: </h4>
+  <body>
+  <?php
+    //echo $_GET['id'];
+    $course_id = $_GET['id'];
+    //echo $course_id;
+    include ('conn.php');
+    $mysql_query = mysql_query("select * from courses where id='$course_id'");
+    $course = mysql_fetch_array($mysql_query);
+    echo "Term: ";
+    echo $course['semester'];
+    echo " ";
+    echo $course['course_year'];
+    echo "<br>";
+    echo "Course Number: ";
+    echo $course['name'];
+    echo "<br>";
+    echo "Section: ";
+    echo $course['section'];
+    echo "<br>";
+    echo "Course Name: ";
+    echo $course['description'];
+    echo "<br>";
+  ?>
    <hr>
    <h4>Homework:</h4>
    <dl>
@@ -51,5 +70,6 @@
    <a href="./studentGrade.html">student grade</a>
    <br>
    <a href="./addHomework.html">add homework</a>
-   
+
+   </body>
 </html>
