@@ -11,7 +11,7 @@
     include ('conn.php');
     $mysql_query = mysql_query("select * from courses where id='$course_id'");
     $course = mysql_fetch_array($mysql_query);
-    echo "Term: ";
+    echo '<font color="blue">Term: ';
     echo $course['semester'];
     echo " ";
     echo $course['course_year'];
@@ -26,7 +26,7 @@
     echo $course['description'];
     echo "<br>";
     echo "<hr>";
-    echo "Homework: ";
+    echo "Homework: </font>";
     //$mysql_query2 = mysql_query("select * from homework where id="$xxx"");
   ?>
    <hr>
