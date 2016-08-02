@@ -30,6 +30,7 @@ CREATE TABLE homework (
 	course_id INT,
 	deadline DATETIME NOT NULL,
 	active BOOLEAN DEFAULT TRUE,
+	total_points INT(6),
 	FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
 )DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 

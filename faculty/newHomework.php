@@ -18,7 +18,7 @@ echo $description;
 $course_id = $_GET['id'];
 echo $course_id;
 include ('conn.php');
-$sql = mysql_query("insert into homework(title,description,course_id,deadline,active) values('$title','$description','$course_id','$date','1')");
+$sql = mysql_query("insert into homework(title,description,course_id,deadline,active,total_points) values('$title','$description','$course_id','$date','1','$point')");
 ?>
 </head>
 </html>
