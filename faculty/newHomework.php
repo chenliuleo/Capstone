@@ -14,8 +14,11 @@ echo "date: ",$date;
 echo " point: ",$point;
 echo " score: ",$score;
 echo " success!";
-include ('../conn.php');
-$sql = "INSERT INTO homework(deadline) values('$deadline')";
+echo $description;
+$course_id = $_GET['id'];
+echo $course_id;
+include ('conn.php');
+$sql = mysql_query("insert into homework(title,description,course_id,deadline,active) values('$title','$description','$course_id','$date','1')");
 ?>
 </head>
 </html>

@@ -15,10 +15,12 @@
   <div>
     <fieldset>
       <legend> Add Homework </legend>
-      <form name="AddHomework" method="post" action="newHomework.php">
+      <form name="AddHomework" method="post" action=<?php 
+      $course_id = $_GET['id'];
+      echo "newHomework.php?id=$course_id" ?>>
 	<p>
 	  <label for="description" class="label">Description:</label>
-	  <input id="description" name="title" type="text" class="input"/>
+	  <input id="description" name="description" type="text" class="input"/>
 	<p>
 	  <label for="title" class="label">Title:</label>
 	  <input id="title" name="title" type="text" class="input"/>

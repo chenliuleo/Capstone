@@ -25,6 +25,9 @@
     echo "Course Name: ";
     echo $course['description'];
     echo "<br>";
+    echo "<hr>";
+    echo "Homework: ";
+    //$mysql_query2 = mysql_query("select * from homework where id="$xxx"");
   ?>
    <hr>
    <h4>Homework:</h4>
@@ -69,7 +72,10 @@
    </dl>
    <a href="./studentGrade.html">student grade</a>
    <br>
-   <a href="./addHomework.html">add homework</a>
+   <?php 
+   $course_id = $_GET['id'];
+   echo "<a href=\"addHomework.php?id=$course_id\">add homework</a>"; 
+   ?>
 
    </body>
 </html>
