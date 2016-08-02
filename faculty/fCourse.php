@@ -4,6 +4,7 @@
  <body>
  <?php
  session_start();
+ echo "<a href =\"facultyHome.html\" target =\"main\">Home</a><br>";
  include ('conn.php');
  $username = $_SESSION['username'];
  $user_query = mysql_query("select id from users where username='$username' limit 1");
@@ -15,7 +16,7 @@
  {
   $course_detail = mysql_query("select name,section,semester,course_year from courses where id='$cid'");
   $cdetail = mysql_fetch_array($course_detail);
-  echo "<a href=\"faculty.html\">12345</a><br>";
+  echo "<a href=\"faculty.html\" target=\"main\">12345</a><br>";
   }
  ?>
  </body>
