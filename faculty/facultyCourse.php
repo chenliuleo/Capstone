@@ -11,9 +11,10 @@
     include ('conn.php');
     $mysql_query = mysql_query("select * from courses where id='$course_id'");
     $course = mysql_fetch_array($mysql_query);
-    echo '<font color="blue">Term: ';
+    echo "<div style='text-align:right;'><font color='#003DA5'>Term: ";
     echo $course['semester'];
     echo " ";
+//    echo "<\div>";
     echo $course['course_year'];
     echo "<br>";
     echo "Course Number: ";
@@ -24,6 +25,7 @@
     echo "<br>";
     echo "Course Name: ";
     echo $course['description'];
+ echo "</div>";
     echo "<br>";
     echo "<hr>";
     echo "Homework: </font>";

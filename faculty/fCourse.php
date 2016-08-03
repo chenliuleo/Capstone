@@ -13,14 +13,14 @@
    
    li a {
    display: block;
-   color: blue;
+   color: #003DA5;
    padding: 8px 16px;
    text-decoration: none;
    }
    
    /* Change the link color on hover */
    li a:hover {
-   background-color: #555;
+   background-color: #003DA5;
    color: white;
    }
  </style>
