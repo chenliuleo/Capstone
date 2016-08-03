@@ -11,7 +11,7 @@
     include ('conn.php');
     $mysql_query = mysql_query("select * from courses where id='$course_id'");
     $course = mysql_fetch_array($mysql_query);
-    echo "<div style='text-align:right;'><font color='#003DA5'>Term: ";
+    echo "<div style='text-align:left;'><font color='#003DA5'>Term: ";
     echo $course['semester'];
     echo " ";
 //    echo "<\div>";
