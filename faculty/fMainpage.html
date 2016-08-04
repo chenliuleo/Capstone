@@ -11,5 +11,13 @@
 	<frame name = "main" src = "facultyHome.html">
       </frameset>
     </frameset>
- 
+    <script type="text/javascript">
+      window.onload=setupRefresh;
+      function setupRefresh(){
+        setInterval("refreshFrame();",1000);
+      }
+      function refreshFrame(){
+        parent.index.location.reload();
+      }
+    </script>
 </html>
