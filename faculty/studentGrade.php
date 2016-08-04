@@ -1,16 +1,38 @@
 <html>
   <head>
     <title>Student Information</title>
-    <a href="facultyCourse.php" style="color:#003DA5">back</a>
+
   </head>
   <body>
   <?php
   session_start();
+  include ('conn.php');
+  $course_id = $_GET['id'];
+  echo "<a href=\"facultyCourse.php?id=$course_id\" style=\"color:#003DA5\">back</a>";
+  //echo $course_id;
   //在此处插入下拉式菜单并输出bannerid;
+  $input_total_points = mysql_query("insert into homework_students(total_points) select total_points from homework");
+  $laostudent = mysql_query("select student_id from course_students where course_id='$course_id'");
+  //var_dump($laostudent);
+  $array1 = Array();
+  while ($temp_stu = mysql_fetch_row($laostudent)){
+    //var_dump($temp_stu[0]);
+    array_push($array1, $temp_stu[0]);
+  }
+  //var_dump($array1);
   echo "<select>
-	<option value=\"\">Please select a student</option>
-        </select>";
-  $input_total_points = mysql_query("insert into homework_student(total_points) select total_points from homework");
+	<option value=\"\">Please select a student</option>";
+  foreach($array1 as $sid)
+ {
+  $student_list = mysql_query("select * from users where id='$sid'");
+  $sdetail = mysql_fetch_array($student_list);
+  $bannerid = $sdetail['banner_id'];
+  $fname = $sdetail['first_name'];
+  $lname = $sdetail['last_name'];
+  $temp = $fname . " " . $lname . "(" . $bannerid . ")";
+  echo "<option value=\"$bannerid\">$temp</option>";
+  }
+  echo "</select>";
   $mysql_query = mysql_query("select * from homework_student where student_id='$student_id'");
   /* <h4>Term: </h4>
    <h4>Course Number: </h4>
