@@ -7,6 +7,9 @@
   <?php
   session_start();
   //在此处插入下拉式菜单并输出bannerid;
+  echo "<select>
+	<option value=\"\">Please select a student</option>
+        </select>";
   $input_total_points = mysql_query("insert into homework_student(total_points) select total_points from homework");
   $mysql_query = mysql_query("select * from homework_student where student_id='$student_id'");
   /* <h4>Term: </h4>
