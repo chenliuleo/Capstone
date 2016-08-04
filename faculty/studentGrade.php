@@ -1,7 +1,24 @@
 <html>
   <head>
     <title>Student Information</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
 
+function fetch_select(val)
+{
+   $.ajax({
+     type: 'post',
+     url: 'fetch_data.php',
+     data: {
+       get_option:val
+     },
+     success: function (response) {
+       document.getElementById("new_select").innerHTML=response; 
+     }
+   });
+}
+
+</script>
   </head>
   <body>
   <?php
@@ -20,7 +37,7 @@
     array_push($array1, $temp_stu[0]);
   }
   //var_dump($array1);
-  echo "<select>
+  echo "<select name=\"laochulaidestudent\" id=\"mySelect\" onchange=\"auto_refresh()\">
 	<option value=\"\">Please select a student</option>";
   foreach($array1 as $sid)
  {
@@ -33,16 +50,30 @@
   echo "<option value=\"$bannerid\">$temp</option>";
   }
   echo "</select>";
-  $mysql_query = mysql_query("select * from homework_student where student_id='$student_id'");
-  /* <h4>Term: </h4>
-   <h4>Course Number: </h4>
-   <h4>Course Name: </h4>
-   <h4>Section: </h4>
-   <h4>Student Name: </h4>
-   <h4>Banner ID: </h4>
-   <hr>
-   <h4>Student Name:</h4>
-   <dl>
+  echo "<p id=\"refresh_below\"></p>";
+  echo "<script>
+	function auto_refresh(){
+	  var x = document.getElementById('mySelect').value;
+	  document.getElementById('refresh_below').innerHTML = x;
+	  window.location.href = 'studentGrade.php?id=$course_id?selected='+x;}</script>";
+  /*if(!isset($_POST['laochulaidestudent'])){
+    echo "failed!!!!!!!!!";}
+  else{
+  $laochulaidestudent2 = $_POST['laochulaidestudent'];
+  echo $laochulaidestudent2;}*/
+  echo $_GET['selected'];
+  //echo $laochulaidestudent2;
+  $mysql_query_ = mysql_query("select * from users where banner_id='$laochulaidestudent2'");
+  $laochulaidestudent_array = mysql_fetch_array($mysql_query_);
+  $mysql_query2 = mysql_query("select * from courses where id='$course_id'");
+  $laochulaidecourse = mysql_fetch_array($mysql_query2);
+  echo "<h4>Term: " . $laochulaidecourse['semester'] . " " . $laochulaidecourse['course_year'] . "</h4>";
+  echo "<h4>Course number and section: " . $laochulaidecourse['name'] . "." . $laochulaidecourse['section'] . "</h4>";
+  echo "<h4>Course name: " . $laochulaidecourse['description'] . "</h4>";
+  echo "<h4>Student Name: " . $laochulaidestudent_array['first_name'] . " " . $laochulaidestudent_array['last_name'] . "</h4>";
+  echo "<h4>Banner ID: " . $laochulaidestudent_array['banner_id'] . "</h4>";
+  echo "<hr>";
+   /*<dl>
      <ul>
      <p>
        <table border="1" cellpadding="6" cellspacing="2">
