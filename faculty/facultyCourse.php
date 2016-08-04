@@ -62,6 +62,7 @@
     <th>Banner ID</th>
     <th>First Name</th>
     <th>Last Name</th>
+    <th>Full Score</th>
     </tr>";
     $mysql_query3 = mysql_query("select student_id from course_student where course_id='$course_id'");
     $newarray = Array();

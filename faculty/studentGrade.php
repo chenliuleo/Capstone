@@ -1,9 +1,9 @@
 <html>
   <head>
+    <style> h4 {font-family: Arial,Helvetica, sans-serif;}</style>
     <title>Student Information</title>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript">
-
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
 function fetch_select(val)
 {
    $.ajax({
@@ -25,7 +25,7 @@ function fetch_select(val)
   session_start();
   include ('conn.php');
   $course_id = $_GET['id'];
-  echo "<a href=\"facultyCourse.php?id=$course_id\" style=\"color:#003DA5\">back</a>";
+  echo "<a href=\"facultyCourse.php?id=$course_id\" style=\"color:#003DA5\">back</a><br>";
   //echo $course_id;
   //在此处插入下拉式菜单并输出bannerid;
   $input_total_points = mysql_query("insert into homework_students(total_points) select total_points from homework");
