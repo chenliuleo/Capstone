@@ -31,6 +31,7 @@ CREATE TABLE homework (
 	deadline DATETIME NOT NULL,
 	active BOOLEAN DEFAULT TRUE,
 	total_points INT(6),
+	attached_files INT,
 	FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE
 )DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
@@ -38,11 +39,11 @@ CREATE TABLE files (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	filename NVARCHAR(256) NOT NULL,
 	submit_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	student_id INT,
+	user_id INT,
 	hw_id INT,
-	FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE,
+	FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
 	FOREIGN KEY (hw_id) REFERENCES homework(id) ON DELETE CASCADE
-);
+)DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE courses_faculty (
 	course_id INT,
@@ -57,3 +58,16 @@ CREATE TABLE course_students (
 	FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
 	FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+CREATE TABLE homework_students (
+	homework_id INT,
+	student_id INT,
+	total_points INT(6),
+	earned_points INT(6),
+	note TEXT,
+	feedback TEXT,
+	FOREIGN KEY (homework_id) REFERENCES homework(id) ON DELETE CASCADE,
+	FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE
+)DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+ALTER TABLE homework ADD CONSTRAINT FOREIGN KEY (attached_files) REFERENCES files(id);
