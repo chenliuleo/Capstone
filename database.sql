@@ -59,4 +59,15 @@ CREATE TABLE course_students (
 	FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+CREATE TABLE homework_students (
+	homework_id INT,
+	student_id INT,
+	total_points INT(6),
+	earned_points INT(6),
+	note TEXT,
+	feedback TEXT,
+	FOREIGN KEY (homework_id) REFERENCES homework(id) ON DELETE CASCADE,
+	FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE
+)DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
 ALTER TABLE homework ADD CONSTRAINT FOREIGN KEY (attached_files) REFERENCES files(id);

@@ -1,52 +1,32 @@
- <html>
- <head>
- <meta http-equiv="refresh" content="30">
- <style type="text/css">
-   
-   ul {
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-   width: 200px;
-  
-   }
-   
-   li a {
-   display: block;
-   color: #003DA5;
-   padding: 8px 16px;
-   text-decoration: none;
-   }
-   
-   /* Change the link color on hover */
-   li a:hover {
-   background-color: #003DA5;
-   color: white;
-   }
- </style>
- </head>
- <body>
- <?php
+<?php
  session_start();
- echo "<ul>";
- echo "<li><center><a href =\"facultyHome.html\" target =\"main\">Home</a><center></li>";
- $username = $_SESSION['username'];
  include ('conn.php');
+ $username = $_SESSION['username'];
  $user_query = mysql_query("select id from users where username='$username' limit 1");
  //while ($arow = mysql_fetch_array($user_query)) {
  //  var_dump($arow);
  //}
  //echo "<br>";
  $row = mysql_fetch_row($user_query);
+ var_dump($row);
+ echo "<br>";
  $id = $row[0];
+ var_dump($id);
+ echo "<br>";
  $query = mysql_query("select course_id from courses_faculty where faculty_id='$id'");
  //var_dump($query);
  $newarray = array();
  while ($arow = mysql_fetch_row($query)) {
+   var_dump($arow);
    array_push($newarray, $arow[0]);
+   var_dump($newarray);
+   echo "XXX<br>";
  }
+  echo "<br>";
  //$array = Array();
  //echo sizeof($query);
+ $course_id = mysql_fetch_array($query);
+ var_dump($course_id);
  //foreach($course_id as $aaa)
  //{
  //  $array = $aaa['course_id'];
@@ -68,5 +48,3 @@
   }
   echo "</ul>";
  ?>
- </body>
- </html>

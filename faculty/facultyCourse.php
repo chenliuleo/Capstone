@@ -51,32 +51,34 @@
     echo "</table>";
     echo "<br>";
     echo "<hr>";
-    
+    //echo "<hr>";
+    echo "Student List: ";
+    echo "<table border='1'>
+    <tr>
+    <th>Banner ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    </tr>";
+    $mysql_query3 = mysql_query("select student_id from course_student where course_id='$course_id'");
+    $newarray = Array();
+    while ($aaa = mysql_fetch_row($mysql_query3)){
+      array_push($newarray, $aaa[0]);
+    }
+    foreach ($newarray as $list){
+      $mysql_query4 = mysql_query("select * from users where id='$list'");
+      $student = mysql_fetch_array($mysql_query4);
+      echo "<tr>";
+      echo "<td>" . $student['banner_id'] . "</td>";
+      echo "<td>" . $student['first_name'] . "</td>";
+      echo "<td>" . $student['last_name'] . "</td>";
+      echo "</tr>";
+    }
+    echo "</table>";
+    echo "<br>";
+    echo "<hr>";
   ?>
-   <hr>
-   <h4>Homework:</h4>
-   <dl>
-     <ul>
-     <p>
-       <table id="homework" border="1" cellpadding="6" cellspacing="2">
-         <thead>
-           <dd><tr>
-               <th width = "100"><b>Number </b></th>
-	       <th width = "100"><b>Title</b></th>
-	       <th width = "100"><b>Dealine</b></th>
-	       <th width = "150"><b>Point value</b></th>
-	       <th width = "100"><b>Score</b></th>
-	       <th width = "100"><b>Solution</b></th>
-	   </tr></dd>
-       </table>
-       <br>
-       <button onclick="CreateRow()">Update homework</button>
-       <button onclick="DeleteRow()">Delete row</button>
-     </p>
-     </ul>
-   </dl>
-   <hr>
-   <h4>Student: </h4>
+
+   <!--<h4>Student: </h4>
    <dl>
      <ul>
      <p>
@@ -93,7 +95,7 @@
 	   </table>
      </p>
      </ul>
-   </dl>
+   </dl>-->
    <a href="./studentGrade.html">student grade</a>
    <br>
    <?php 
