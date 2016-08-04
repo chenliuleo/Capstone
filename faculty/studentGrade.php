@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Student Information</title>
+    <a href="facultyCourse.php" style="color:#003DA5">back</a>
   </head>
   <body>
   <?php
