@@ -37,6 +37,12 @@ function fetch_select(val)
     array_push($array1, $temp_stu[0]);
   }
   //var_dump($array1);
+  echo "<script>
+	function auto_refresh(){
+	  var x = document.getElementById('mySelect').value;
+	  document.getElementById('refresh_below').innerHTML = x;
+	  //window.location.href = 'studentGrade.php?id=$course_id?selected='+x;
+	}</script>";
   echo "<select name=\"laochulaidestudent\" id=\"mySelect\" onchange=\"auto_refresh()\">
 	<option value=\"\">Please select a student</option>";
   foreach($array1 as $sid)
@@ -51,11 +57,7 @@ function fetch_select(val)
   }
   echo "</select>";
   echo "<p id=\"refresh_below\"></p>";
-  echo "<script>
-	function auto_refresh(){
-	  var x = document.getElementById('mySelect').value;
-	  document.getElementById('refresh_below').innerHTML = x;
-	  window.location.href = 'studentGrade.php?id=$course_id?selected='+x;}</script>";
+  
   /*if(!isset($_POST['laochulaidestudent'])){
     echo "failed!!!!!!!!!";}
   else{
