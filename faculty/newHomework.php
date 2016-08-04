@@ -8,17 +8,24 @@ $deadline = $_POST['deadline'];
 $point = $_POST['point'];
 $date=date("Y-m-d H:i:s",strtotime($deadline));
 
-echo " title: ",$title;
+/*echo " title: ",$title;
 echo " deadline: ",$deadline;
 echo "date: ",$date;
 echo " point: ",$point;
 echo " score: ",$score;
 echo " success!";
-echo $description;
+echo $description*/;
+
 $course_id = $_GET['id'];
-echo $course_id;
+//echo $course_id;
 include ('conn.php');
 $sql = mysql_query("insert into homework(title,description,course_id,deadline,active,total_points) values('$title','$description','$course_id','$date','1','$point')");
+
+$message="success";
+echo "<script>
+alert('$message');
+window.location.href='facultyCourse.php?id=$course_id';
+</script>";
 ?>
 </head>
 </html>
