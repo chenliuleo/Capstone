@@ -1,7 +1,11 @@
 <html>
   <head>
     <title>Homework Submission System</title>
-    <script src="add_delete.js"></script>
+    <style>
+      div,table,p,a {
+      font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
   </head>
   <body>
   <?php
@@ -27,8 +31,8 @@
     echo $course['description'];
     echo "</div>";
     echo "<br>";
-    echo "<hr>";
-    echo "Homework: </font>";
+    echo "<hr></font>";
+    echo "<p>Homework:</p>";
     $mysql_query2 = mysql_query("select * from homework where course_id='$course_id'");
     echo "<table border='1'>
     <tr>
@@ -52,7 +56,7 @@
     echo "<br>";
     echo "<hr>";
     //echo "<hr>";
-    echo "Student List: ";
+    echo "<p>Student List: </p>";
     echo "<table border='1'>
     <tr>
     <th>Banner ID</th>
