@@ -2,63 +2,71 @@
   <head>
     <style> h4 {font-family: Arial,Helvetica, sans-serif;}</style>
     <title>Student Information</title>
+
   </head>
   <body>
   <?php
   session_start();
   include ('conn.php');
   $course_id = $_GET['id'];
+  $banner_id = $_GET['banner'];
   echo "<a href=\"facultyCourse.php?id=$course_id\" style=\"color:#003DA5\">back</a><br>";
-  //echo $course_id;
-  //在此处插入下拉式菜单并输出bannerid;
-  $input_total_points = mysql_query("insert into homework_students(total_points) select total_points from homework");
-  $laostudent = mysql_query("select student_id from course_students where course_id='$course_id'");
-  //var_dump($laostudent);
-  $array1 = Array();
-  while ($temp_stu = mysql_fetch_row($laostudent)){
-    //var_dump($temp_stu[0]);
-    array_push($array1, $temp_stu[0]);
-  }
-  //var_dump($array1);
-  /*echo "<script>
-	function auto_refresh(){
-	  var x = document.getElementById('mySelect').value;
-	  document.getElementById('refresh_below').innerHTML = x;
-	  //window.location.href = 'studentGrade.php?id=$course_id?selected='+x;
-	}</script>";
-  echo "<select name=\"laochulaidestudent\" id=\"mySelect\" onchange=\"auto_refresh()\">
-	<option value=\"\">Please select a student</option>";
-
-  foreach($array1 as $sid)
- {
-  $student_list = mysql_query("select * from users where id='$sid'");
-  $sdetail = mysql_fetch_array($student_list);
-  $bannerid = $sdetail['banner_id'];
-  $fname = $sdetail['first_name'];
-  $lname = $sdetail['last_name'];
-  $temp = $fname . " " . $lname . "(" . $bannerid . ")";
-  echo "<option value=\"$bannerid\">$temp</option>";
-  }
-  echo "</select>";
-  echo "<p id=\"refresh_below\"></p>";
-  
-  if(!isset($_POST['laochulaidestudent'])){
-    echo "failed!!!!!!!!!";}
-  else{
-  $laochulaidestudent2 = $_POST['laochulaidestudent'];
-  echo $laochulaidestudent2;}*/
-  echo $_GET['selected'];
-  //echo $laochulaidestudent2;
-  $mysql_query_ = mysql_query("select * from users where banner_id='$laochulaidestudent2'");
-  $laochulaidestudent_array = mysql_fetch_array($mysql_query_);
+  $get_student_info = mysql_query("select * from users where banner_id='$banner_id'");
+  $student_info = mysql_fetch_array($get_student_info);
   $mysql_query2 = mysql_query("select * from courses where id='$course_id'");
   $laochulaidecourse = mysql_fetch_array($mysql_query2);
   echo "<h4>Term: " . $laochulaidecourse['semester'] . " " . $laochulaidecourse['course_year'] . "</h4>";
   echo "<h4>Course number and section: " . $laochulaidecourse['name'] . "." . $laochulaidecourse['section'] . "</h4>";
   echo "<h4>Course name: " . $laochulaidecourse['description'] . "</h4>";
-  echo "<h4>Student Name: " . $laochulaidestudent_array['first_name'] . " " . $laochulaidestudent_array['last_name'] . "</h4>";
-  echo "<h4>Banner ID: " . $laochulaidestudent_array['banner_id'] . "</h4>";
+  echo "<h4>Student Name: " . $student_info['first_name'] . " " . $student_info['last_name'] . "</h4>";
+  echo "<h4>Banner ID: " . $student_info['banner_id'] . "</h4>";
+  $student_id = $student_info['id'];
   echo "<hr>";
+  echo "<table border='1'>
+    <tr>
+    <th>Homework</th>
+    <th>Deadline</th>
+    <th>Earned Points</th>
+    <th>Total Points</th>
+    <th>Files</th>
+    <th>Note</th>
+    <th>Feedback</th>
+    <th>Enter Score</th>
+    </tr>";
+    $mysql_query3 = mysql_query("select id from homework where course_id='$course_id'");
+    $newarray = Array();
+    while ($aaa = mysql_fetch_row($mysql_query3)){
+      array_push($newarray, $aaa[0]);
+    }
+    foreach ($newarray as $list){
+      $mysql_query4 = mysql_query("select * from homework where id='$list'");
+      $homework = mysql_fetch_array($mysql_query4);
+      $title = $homework['title'];
+      $deadline = $homework['deadline'];
+      $total_points = $homework['total_points'];
+      $mysql_query5 = mysql_query("select * from homework_students where homework_id='$list' and student_id='$student_id'");
+      $student_homework = mysql_fetch_array($mysql_query5);
+      //$mysql_query6 = mysql_query("select earned_points from homework_students where course_id='$course_id' and student_id='$student_id'");
+      //$earned_points = mysql_fetch_array($mysql_query6);
+      echo "<tr>";
+      echo "<td>" . $title . "</td>";
+      echo "<td>" . $deadline . "</td>";
+      echo "<td>" . $student_homework['earned_points'] . "</td>";
+      echo "<td>" . $total_points . "</td>";
+      echo "<td>Files</td>";
+      echo "<td>" . $student_homework['note'] . "</td>";
+      echo "<td>" . $student_homework['feedback'] . "</td>";
+      echo "<script>
+	    function enterScore() { 
+	    var score = prompt(\"Please enter score\", \"\");
+	    if(score)
+	    window.location.href=\"enterScore.php?id=$course_id&banner=$banner_id&hwid=$list&stdid=$student_id&score=\" + score; 
+	    }
+	    </script>";
+      echo "<td><a href=\"javascript:enterScore();\">Enter Score</a></td>";
+      echo "</tr>";
+    }
+    echo "</table>";
    /*<dl>
      <ul>
      <p>

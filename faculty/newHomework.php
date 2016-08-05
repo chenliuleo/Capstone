@@ -25,11 +25,11 @@ $newarray = Array();
 while ($aaa = mysql_fetch_row($sql2)){
   array_push($newarray, $aaa[0]);
 }
-$sql3 = mysql_query("select id from homework where title='$title' and description='$description' and deadline='$deadline'");
+$sql3 = mysql_query("select id from homework where title='$title' and description='$description' and deadline='$date'");
 $array = mysql_fetch_array($sql3);
 $homework_id = $array['id'];
 foreach ($newarray as $bbb){
-  $sql_student = mysql_query("insert into homework_student(homework_id,student_id) values('$homework_id','$bbb')");
+  $sql_student = mysql_query("insert into homework_students(homework_id,student_id) values('$homework_id','$bbb')");
 }
 $message="success";
 echo "<script>

@@ -85,7 +85,7 @@
       echo "<td>" . $student['last_name'] . "</td>";
       echo "<td>" . $earned_points['earned_points'] . "</td>";
       echo "<td>" . $total_points['total_points'] . "</td>";
-      echo "<td> <a href=\"studentGrade.php?id=$course_id\">Click here </a></td>";
+      echo "<td> <a href=\"studentGrade.php?id=$course_id&banner=$student[banner_id]\">Click here </a></td>";
       echo "</tr>";
     }
     echo "</table>";
