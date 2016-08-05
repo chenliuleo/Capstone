@@ -96,7 +96,7 @@
    <br>
    <?php 
    $course_id = $_GET['id'];
-   echo "<a href=\"studentGrade.php?id=$course_id\">Student grade</a>";
+   //echo "<a href=\"studentGrade.php?id=$course_id\">Student grade</a>";
    echo "<a href=\"addHomework.php?id=$course_id\">Add homework</a>"; 
    ?>
 
