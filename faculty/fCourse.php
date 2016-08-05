@@ -34,31 +34,16 @@
  $username = $_SESSION['username'];
  include ('conn.php');
  $user_query = mysql_query("select id from users where username='$username' limit 1");
- //while ($arow = mysql_fetch_array($user_query)) {
- //  var_dump($arow);
- //}
- //echo "<br>";
+
  $row = mysql_fetch_row($user_query);
  $id = $row[0];
  $query = mysql_query("select course_id from courses_faculty where faculty_id='$id'");
- //var_dump($query);
+
  $newarray = array();
  while ($arow = mysql_fetch_row($query)) {
    array_push($newarray, $arow[0]);
  }
- //$array = Array();
- //echo sizeof($query);
- //foreach($course_id as $aaa)
- //{
- //  $array = $aaa['course_id'];
- //}
- //echo sizeof($course_id['course_id']);
- /*for($i=0;$i<sizeof($course_id);$i++)
- {
-   echo $course_id['course_id'];
- }
- //echo $array[0] . "<br>";
- //echo $array[1] . "<br>";*/
+
  foreach($newarray as $cid)
  {
   $course_detail = mysql_query("select id,name,section,semester,course_year from courses where id='$cid'");
