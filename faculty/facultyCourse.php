@@ -62,9 +62,10 @@
     <th>Banner ID</th>
     <th>First Name</th>
     <th>Last Name</th>
+    <th>Earned Score</th>
     <th>Full Score</th>
     </tr>";
-    $mysql_query3 = mysql_query("select student_id from course_student where course_id='$course_id'");
+    $mysql_query3 = mysql_query("select student_id from course_students where course_id='$course_id'");
     $newarray = Array();
     while ($aaa = mysql_fetch_row($mysql_query3)){
       array_push($newarray, $aaa[0]);
@@ -72,10 +73,17 @@
     foreach ($newarray as $list){
       $mysql_query4 = mysql_query("select * from users where id='$list'");
       $student = mysql_fetch_array($mysql_query4);
+      $student_id = $student['id'];
+      $mysql_query5 = mysql_query("select total_points from homework where course_id='$course_id'");
+      $total_points = mysql_fetch_array($mysql_query5);
+      $mysql_query6 = mysql_query("select earned_points from homework_students where course_id='$course_id' and student_id='$student_id'");
+      $earned_points = mysql_fetch_array($mysql_query6);
       echo "<tr>";
       echo "<td>" . $student['banner_id'] . "</td>";
       echo "<td>" . $student['first_name'] . "</td>";
       echo "<td>" . $student['last_name'] . "</td>";
+      echo "<td>" . $earned_points['earned_points'] . "</td>";
+      echo "<td>" . $total_points['total_points'] . "</td>";
       echo "</tr>";
     }
     echo "</table>";

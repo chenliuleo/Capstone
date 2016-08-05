@@ -20,7 +20,17 @@ $course_id = $_GET['id'];
 //echo $course_id;
 include ('conn.php');
 $sql = mysql_query("insert into homework(title,description,course_id,deadline,active,total_points) values('$title','$description','$course_id','$date','1','$point')");
-
+$sql2 = mysql_query("select student_id from course_students where course_id='$course_id'");
+$newarray = Array();
+while ($aaa = mysql_fetch_row($sql2)){
+  array_push($newarray, $aaa[0]);
+}
+$sql3 = mysql_query("select id from homework where title='$title' and description='$description' and deadline='$deadline'");
+$array = mysql_fetch_array($sql3);
+$homework_id = $array['id'];
+foreach ($newarray as $bbb){
+  $sql_student = mysql_query("insert into homework_student(homework_id,student_id) values('$homework_id','$bbb')");
+}
 $message="success";
 echo "<script>
 alert('$message');
