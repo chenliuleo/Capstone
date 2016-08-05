@@ -1,13 +1,9 @@
 <html>
   <head>
-<<<<<<< HEAD
-    <style> h4,table {font-family: Arial,Helvetica, sans-serif;}</style>
-=======
-    <style> 
+    <style>
       h4,table {font-family: Arial,Helvetica, sans-serif;}
       h4 {color:#003DA5;}
     </style>
->>>>>>> ac1a3aab97cdbe39cf5f396f5a919668a352ff30
     <title>Student Information</title>
 
   </head>
@@ -67,9 +63,11 @@
 	    function enterScore() { 
 	    var score = prompt(\"Please enter score\", \"\");
 	    if(score)
-	    window.location.href=\"enterScore.php?id=$course_id&banner=$banner_id&hwid=$list&stdid=$student_id&score=\" + score; 
+	    window.location.href = \"enterScore.php?id=$course_id&banner=$banner_id&stdid=$student_id&hwid=$list&score=\" + score;
 	    }
 	    </script>";
+      //echo "<script type="text/javascript">enterScore();</script>";
+      //$temp = "&hwid=$list";
       echo "<td><a href=\"javascript:enterScore();\">Enter Score</a></td>";
       echo "</tr>";
     }

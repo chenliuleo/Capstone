@@ -76,15 +76,28 @@
       $student = mysql_fetch_array($mysql_query4);
       $student_id = $student['id'];
       $mysql_query5 = mysql_query("select total_points from homework where course_id='$course_id'");
-      $total_points = mysql_fetch_array($mysql_query5);
-      $mysql_query6 = mysql_query("select earned_points from homework_students where course_id='$course_id' and student_id='$student_id'");
-      $earned_points = mysql_fetch_array($mysql_query6);
+      $total_sum = Array();
+      while ($total_points = mysql_fetch_row($mysql_query5)){
+	array_push($total_sum, (int)$total_points[0]);
+      }
+      $mysql_query7 = mysql_query("select homework_id from homework where course_id='$course_id'");
+      $all_homework_id = Array();
+      while ($all_id = mysql_fetch_row($mysql_query7)){
+	array_push($all_homework_id, $all_id[0]);
+      }
+      $total_earned_points = Array();
+      foreach ($all_homework_id as $homework_id){
+	$mysql_query6 = mysql_query("select earned_points from homework_students where homework_id='$homework_id' and student_id='$student_id'");
+	$earned_points_temp = mysql_fetch_array($mysql_query6);
+	$earned_points = $earned_points_temp['earned_points'];
+	array_push($total_earned_points, (int)$earned_points);
+      }
       echo "<tr>";
       echo "<td>" . $student['banner_id'] . "</td>";
       echo "<td>" . $student['first_name'] . "</td>";
       echo "<td>" . $student['last_name'] . "</td>";
-      echo "<td>" . $earned_points['earned_points'] . "</td>";
-      echo "<td>" . $total_points['total_points'] . "</td>";
+      echo "<td>" . array_sum($total_earned_points) . "</td>";
+      echo "<td>" . array_sum($total_sum) . "</td>";
       echo "<td> <a href=\"studentGrade.php?id=$course_id&banner=$student[banner_id]\">Click here </a></td>";
       echo "</tr>";
     }
