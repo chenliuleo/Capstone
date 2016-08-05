@@ -26,7 +26,7 @@
     <center>
       <h1><font color="white">Homework Submission System</font><br></h1>
       <div class="right">
-	<a href="login.html" style="color:white" title="Log out" target="_parent">Log Out</a>
+	<a href="logout.php" style="color:white" title="Log out" target="_parent">Log Out</a>
       </div>
       <div id="content">
         <img src="slu-logo.png">
