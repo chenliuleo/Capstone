@@ -64,6 +64,7 @@
     <th>Last Name</th>
     <th>Earned Score</th>
     <th>Full Score</th>
+    <th>Details</th>
     </tr>";
     $mysql_query3 = mysql_query("select student_id from course_students where course_id='$course_id'");
     $newarray = Array();
@@ -84,36 +85,18 @@
       echo "<td>" . $student['last_name'] . "</td>";
       echo "<td>" . $earned_points['earned_points'] . "</td>";
       echo "<td>" . $total_points['total_points'] . "</td>";
+      echo "<td> <a href=\"studentGrade.php?id=$course_id\">Click here </a></td>";
       echo "</tr>";
     }
     echo "</table>";
     echo "<br>";
     echo "<hr>";
   ?>
-
-   <!--<h4>Student: </h4>
-   <dl>
-     <ul>
-     <p>
-       <table border="1" cellpadding="6" cellspacing="2">
-         <thead>
-           <dd><tr>
-               <th width = "100"><b>Banner ID </b></th>
-	       <th width = "100"><b>First Name</b></th>
-	       <th width = "100"><b>Last Name</b></th>
-	       <th width = "150"><b>Student Score</b></th>
-	       <th width = "150"><b>Full Score</b></th>
-	       <th width = "150"><b>Grade</b></th>
-	   </tr></dd>
-	   </table>
-     </p>
-     </ul>
-   </dl>-->
    
    <br>
    <?php 
    $course_id = $_GET['id'];
-   echo "<a href=\"studentGrade.php?id=$course_id\">Student grade</a>";
+   //echo "<a href=\"studentGrade.php?id=$course_id\">Student grade</a>";
    echo "<a href=\"addHomework.php?id=$course_id\">Add homework</a>"; 
    ?>
 
