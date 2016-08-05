@@ -2,23 +2,6 @@
   <head>
     <style> h4 {font-family: Arial,Helvetica, sans-serif;}</style>
     <title>Student Information</title>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript">
-function fetch_select(val)
-{
-   $.ajax({
-     type: 'post',
-     url: 'fetch_data.php',
-     data: {
-       get_option:val
-     },
-     success: function (response) {
-       document.getElementById("new_select").innerHTML=response; 
-     }
-   });
-}
-
-</script>
   </head>
   <body>
   <?php
@@ -37,7 +20,7 @@ function fetch_select(val)
     array_push($array1, $temp_stu[0]);
   }
   //var_dump($array1);
-  echo "<script>
+  /*echo "<script>
 	function auto_refresh(){
 	  var x = document.getElementById('mySelect').value;
 	  document.getElementById('refresh_below').innerHTML = x;
@@ -45,6 +28,7 @@ function fetch_select(val)
 	}</script>";
   echo "<select name=\"laochulaidestudent\" id=\"mySelect\" onchange=\"auto_refresh()\">
 	<option value=\"\">Please select a student</option>";
+
   foreach($array1 as $sid)
  {
   $student_list = mysql_query("select * from users where id='$sid'");
@@ -58,7 +42,7 @@ function fetch_select(val)
   echo "</select>";
   echo "<p id=\"refresh_below\"></p>";
   
-  /*if(!isset($_POST['laochulaidestudent'])){
+  if(!isset($_POST['laochulaidestudent'])){
     echo "failed!!!!!!!!!";}
   else{
   $laochulaidestudent2 = $_POST['laochulaidestudent'];
