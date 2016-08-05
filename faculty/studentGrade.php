@@ -1,6 +1,6 @@
 <html>
   <head>
-    <style> h4 {font-family: Arial,Helvetica, sans-serif;}</style>
+    <style> h4,table {font-family: Arial,Helvetica, sans-serif;}</style>
     <title>Student Information</title>
 
   </head>
