@@ -3,6 +3,14 @@
     <style>
       h4,table {font-family: Arial,Helvetica, sans-serif;}
       h4 {color:#003DA5;}
+      table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+      }
+      th, td {
+      padding: 5px;
+      }
     </style>
     <title>Student Information</title>
 

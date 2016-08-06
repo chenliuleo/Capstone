@@ -11,9 +11,9 @@ if($_GET['action'] == "logout"){
 }
 
 //登录
-if(!isset($_POST['submit'])){
+/*if(!isset($_POST['submit'])){
 	exit('Permission denied!');
-}
+}*/
 $username = htmlspecialchars($_POST['username']);
 $password = sha1($_POST['password']);
 //echo $username;
@@ -51,5 +51,6 @@ if($result = mysql_fetch_array($check_query)){
 	} 
 else {
   exit('Login failed! Click here <a href="javascript:history.back(-1);">back</a> Try again');
+
 }
 ?>
