@@ -74,6 +74,7 @@ echo "<table border='1'>
      <th>Full Points</th>
      <th>Attached Files</th>
      <th>Upload Files</th>
+     <th>Feedback</th>
      </tr>";
 
 //var_dump($homework_array);
@@ -94,6 +95,7 @@ foreach ($homework_array as $hwid){
   echo "<td>" . $homework_detail['total_points'] . "</td>";
   echo "<td>" . "<a href=\"downloadAttachment.php?hwid=$hwid&fid=$faculty_id&cid=$course_id\">Click Here</a>" . "</td>";
   echo "<td>" . "<a href=\"../upload_file2.php?hwid=$hwid&uid=$student_id\">Upload</a>" . "</td>";
+  echo "<td>" . "<a href=\"feedback.php?hwid=$hwid&uid=$student_id&cid=$course_id\">Feedback</a>" . "</td>";
 }
 echo "</table>";
 //echo $mysql_date;
