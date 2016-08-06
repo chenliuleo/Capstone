@@ -23,7 +23,22 @@ echo "Homework: " . $homework['title'] . "<br>";
 echo "Description: " . $homework['description'] . "<br>";
 echo "Student Name: " . $student_info['first_name'] . " " . $student_info['last_name'] . "<br>";
 echo "Full Score: " . $homework['total_points'] . "<br>";
-echo "<br>";
+echo "<hr>";
+$get_file_sql = mysql_query("select id from files where user_id='$student_id' and hw_id='$homework_id' order by submit_time,filename");
+$get_file_array = Array();
+while($file_id = mysql_fetch_row($get_file_sql)){
+  array_push($get_file_array,$file_id[0]);
+}
+foreach($get_file_array as $fid){
+  $get_filename = mysql_query("select filename from files where id='$fid'");
+  $filename_array = mysql_fetch_array($get_filename);
+  $filename = $filename_array['filename'];
+  echo "File name: ";
+  echo $filename;
+  echo " ";
+  echo "<a href=\"http://turing.slu.edu/~lchen22/cgi-bin/download.py?name=/export/mathcs/home/student/l/lchen22/WWW/upload/$filename\">Download</a>";
+  echo "<br>";
+}
 echo "<hr>";
 echo "<form action=\"enterScore.php?id=$course_id&banner=$banner_id&hwid=$homework_id&stdid=$student_id\">";
 echo "Enter Score: " . "<input id='earned_points' type='int' name='earned_points' /><br>";
