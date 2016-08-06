@@ -42,7 +42,7 @@
     <th>Files</th>
     <th>Note</th>
     <th>Feedback</th>
-    <th>Edit</th>
+    <th>Edit & Download</th>
     </tr>";
     $mysql_query3 = mysql_query("select id from homework where course_id='$course_id'");
     $newarray = Array();
