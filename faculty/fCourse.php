@@ -30,7 +30,7 @@
  <?php
  session_start();
  echo "<ul>";
- echo "<li><center><a href =\"facultyHome.html\" target =\"main\">Home</a><center></li>";
+ echo "<li><center><a href =\"facultyHome.php\" target =\"main\">Home</a><center></li>";
  $username = $_SESSION['username'];
  include ('conn.php');
  $user_query = mysql_query("select id from users where username='$username' limit 1");
