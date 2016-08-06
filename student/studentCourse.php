@@ -29,7 +29,7 @@
  <?php
   session_start();
   echo "<ul>";
-  echo "<li><center><a href =\"studentHome.html\" target =\"main\">Home</a><center></li>";
+  echo "<li><center><a href =\"studentHome.php\" target =\"main\">Home</a><center></li>";
   $username = $_SESSION['username'];
   //echo $username;
   include ('conn.php');
@@ -42,14 +42,14 @@
   while ($arow = mysql_fetch_row($query)) {
     array_push($newarray, $arow[0]);
   }
-  var_dump($newarray);
+  //var_dump($newarray);
   foreach($newarray as $cid) {
     $course_detail = mysql_query("select id,name,section,semester,course_year from courses where id='$cid'");
     $cdetail = mysql_fetch_array($course_detail);
     $var = $cdetail['id'];
     $temp = $cdetail['name'] . "." . $cdetail['section'] . " " . $cdetail['semester'] . $cdetail['course_year'];
-    echo $temp;
-    echo "<li><center><a href=\"studentHome.php?id=$var\" target=\"main\">$temp</a><center></li>";
+    //echo $temp;
+    echo "<li><center><a href=\"sCourse.php?id=$var\" target=\"main\">$temp</a><center></li>";
   }
   echo "</ul>";
  ?>
