@@ -12,6 +12,7 @@
    }
    
    li a {
+   font-family: Arial, Helvetica, sans-serif;
    display: block;
    color: #003DA5;
    padding: 8px 16px;

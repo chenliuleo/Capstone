@@ -3,6 +3,11 @@
 <html>
   <head>
     <title>Homework Submission System</title>
+    <style>
+      table,p{
+      font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
   </head>
   <body>
 <?php
@@ -15,14 +20,14 @@ $course_info = mysql_fetch_array($mysql_query);
 $mysql_query2 = mysql_query("select * from users where username='$username' limit 1");
 $student_info = mysql_fetch_array($mysql_query2);
 $student_id = $student_info['id'];
-echo "Term: " . $course_info['semester'] . " " . $course_info['course_year'];
+echo "<p>Term: " . $course_info['semester'] . " " . $course_info['course_year'];
 echo "<br>";
 echo "Course Name: " . $course_info['name'];
 echo "<br>";
 echo "Section: " . $course_info['section'];
 echo "<br>";
 echo "Description: " . $course_info['description'];
-echo "<br>";
+echo "<br></p>";
 echo "<hr>";
 $current_server_time = date("Y-m-d") . date("h:i:sa");
 $mysql_date = date("Y-m-d H:i:s", strtotime($current_server_time));
