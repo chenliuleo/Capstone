@@ -30,6 +30,28 @@
   session_start();
   echo "<ul>";
   echo "<li><center><a href =\"studentHome.html\" target =\"main\">Home</a><center></li>";
+  $username = $_SESSION['username'];
+  //echo $username;
+  include ('conn.php');
+  $user_query = mysql_query("select id from users where username='$username' limit 1");
+  $row = mysql_fetch_row($user_query);
+  $id = $row[0];
+  //echo $id;
+  $query = mysql_query("select course_id from course_students where student_id='$id'");
+  $newarray = array();
+  while ($arow = mysql_fetch_row($query)) {
+    array_push($newarray, $arow[0]);
+  }
+  var_dump($newarray);
+  foreach($newarray as $cid) {
+    $course_detail = mysql_query("select id,name,section,semester,course_year from courses where id='$cid'");
+    $cdetail = mysql_fetch_array($course_detail);
+    $var = $cdetail['id'];
+    $temp = $cdetail['name'] . "." . $cdetail['section'] . " " . $cdetail['semester'] . $cdetail['course_year'];
+    echo $temp;
+    echo "<li><center><a href=\"studentHome.php?id=$var\" target=\"main\">$temp</a><center></li>";
+  }
+  echo "</ul>";
  ?>
  </body>
  </html>

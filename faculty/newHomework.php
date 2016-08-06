@@ -34,7 +34,7 @@ foreach ($newarray as $bbb){
 $message="success";
 echo "<script>
 alert('$message');
-window.locat ion.href='facultyCourse.php?id=$course_id';
+window.location.href='facultyCourse.php?id=$course_id';
 </script>";
 ?>
 </head>

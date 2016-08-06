@@ -34,7 +34,7 @@
     <th>Files</th>
     <th>Note</th>
     <th>Feedback</th>
-    <th>Enter Score</th>
+    <th>Edit</th>
     </tr>";
     $mysql_query3 = mysql_query("select id from homework where course_id='$course_id'");
     $newarray = Array();
@@ -59,7 +59,7 @@
       echo "<td>Files</td>";
       echo "<td>" . $student_homework['note'] . "</td>";
       echo "<td>" . $student_homework['feedback'] . "</td>";
-      echo "<script>
+      /*echo "<script>
 	    function enterScore() { 
 	    var score = prompt(\"Please enter score\", \"\");
 	    if(score)
@@ -67,8 +67,8 @@
 	    }
 	    </script>";
       //echo "<script type="text/javascript">enterScore();</script>";
-      //$temp = "&hwid=$list";
-      echo "<td><a href=\"javascript:enterScore();\">Enter Score</a></td>";
+      //$temp = "&hwid=$list";*/
+      echo "<td><a href=\"studentHomework.php?id=$course_id&banner=$banner_id&stdid=$student_id&hwid=$list\">Click Here</a></td>";
       echo "</tr>";
     }
     echo "</table>";

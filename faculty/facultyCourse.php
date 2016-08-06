@@ -80,7 +80,7 @@
       while ($total_points = mysql_fetch_row($mysql_query5)){
 	array_push($total_sum, (int)$total_points[0]);
       }
-      $mysql_query7 = mysql_query("select homework_id from homework where course_id='$course_id'");
+      $mysql_query7 = mysql_query("select id from homework where course_id='$course_id'");
       $all_homework_id = Array();
       while ($all_id = mysql_fetch_row($mysql_query7)){
 	array_push($all_homework_id, $all_id[0]);
