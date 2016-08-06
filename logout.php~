@@ -1,6 +1,0 @@
-<?php
-  session_start();
-  /*session_destory();
-  unset($_SESSION);*/
-  header('Location:login.html');
-?>

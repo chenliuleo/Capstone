@@ -32,6 +32,7 @@ echo "<table border='1'>
       <tr>
       <th>Overall Earned Points</th>
       <th>Overall Full Points</th>
+      <th>Percentage</th>
       </tr>";
 $homework_sql = mysql_query("select id from homework where course_id='$course_id'");
 $homework_array = Array();
@@ -47,10 +48,13 @@ foreach ($homework_array as $hwid2){
   $get_total = mysql_fetch_array($total_score);
   $get_total2 = $get_total['total_points'];
   $total += (int)$get_total2;
+  $percentage = round((((float)$total_earned / (float)$total)*100),2);
+  $percent = $percentage . "%";
 }
 echo "<tr>
       <td>$total_earned</td>
       <td>$total</td>
+      <td>$percent</td>
       </tr>
       </table>";
 echo "<hr>";
@@ -74,14 +78,17 @@ foreach ($homework_array as $hwid){
   $earned_points_query = mysql_query("select earned_points from homework_students where homework_id='$hwid' and student_id='$student_id'");
   $earned_points_array = mysql_fetch_array($earned_points_query);
   $earned_points = $earned_points_array['earned_points'];
+  $faculty_sql = mysql_query("select faculty_id from courses_faculty where course_id='$course_id'");
+  $faculty_array = mysql_fetch_array($faculty_sql);
+  $faculty_id = $faculty_array['faculty_id'];
   echo "<tr>";
   echo "<td>" . $homework_detail['title'] . "</td>";
   echo "<td>" . $homework_detail['description'] . "</td>";
   echo "<td>" . $homework_detail['deadline'] . "</td>";
   echo "<td>" . $earned_points . "</td>";
   echo "<td>" . $homework_detail['total_points'] . "</td>";
-  echo "<td>" . "AF" . "</td>";
-  echo "<td>" . "Upload" . "</td>";
+  echo "<td>" . "<a href=\"downloadAttachment.php?hwid=$hwid&fid=$faculty_id&cid=$course_id\">Click Here</a>" . "</td>";
+  echo "<td>" . "<a href=\"../upload_file2.php?hwid=$hwid&uid=$student_id\">Upload</a>" . "</td>";
 }
 echo "</table>";
 //echo $mysql_date;

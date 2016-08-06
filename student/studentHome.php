@@ -4,6 +4,11 @@
   <head>
     <title>Homework Submission System</title>
   </head>
-  <h1>Due: <br></h1>
- 
+<body>
+<?php
+session_start();
+include('conn.php');
+
+?>
+</body>
 </html>
