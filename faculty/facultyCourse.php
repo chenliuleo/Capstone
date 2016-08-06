@@ -5,6 +5,14 @@
       div,table,p,a {
       font-family: Arial, Helvetica, sans-serif;
       }
+      table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+      }
+      th, td {
+      padding: 5px;
+      }
     </style>
   </head>
   <body>
