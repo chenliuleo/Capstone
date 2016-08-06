@@ -3,6 +3,11 @@
 <html>
   <head>
     <title>Homework Submission System</title>
+    <style type="text/css">
+      p,table {
+      font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
   </head>
 <body>
 <?php
@@ -11,7 +16,7 @@ include('conn.php');
 $username = $_SESSION['username'];
 echo "<h1>Welcome!</h1>";
 echo "<hr>";
-echo "Coming due:";
+echo "<p>Coming due:";
 $current_server_time = date("Y-m-d") . date("h:i:sa");
 $mysql_date = date("Y-m-d H:i:s", strtotime($current_server_time));
 $mysql_query2 = mysql_query("select * from users where username='$username' limit 1");
@@ -23,7 +28,7 @@ while ($row = mysql_fetch_row($mysql_query)){
   array_push($homework_array,$row[0]);
 }
 $coming_due = Array();
-var_dump($homework_array);
+//var_dump($homework_array);
 foreach ($homework_array as $hwid){
   $deadline_sql = mysql_query("select deadline from homework where id='$hwid'");
   $deadline_array = mysql_fetch_array($deadline_sql);
@@ -41,7 +46,7 @@ echo "<table border='1'>
      <th>Description</th>
      <th>Deadline</th>
      </tr>";
-var_dump($coming_due);
+//var_dump($coming_due);
 foreach ($coming_due as $due){
   $homework_sql = mysql_query("select * from homework where id='$due'");
   $homework_ = mysql_fetch_array($homework_sql);
@@ -61,7 +66,7 @@ foreach ($coming_due as $due){
   echo "<td>" . $deadline_time . "</td>";
   echo "</tr>";
 }
-echo "</table>";
+echo "</table></p>";
 ?>
 </body>
 </html>

@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>Homework Submission System</title>
+    <style>
+      fieldset{
+      font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
   </head>
   <body>
 <form id="upload" action="" method="POST" enctype="multipart/form-data">
@@ -12,12 +17,12 @@
 <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="1048576" />
 
 <div>
-	<label for="fileselect">Files to upload:</label>
-	<input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+  <label for="fileselect">Files to upload:</label>
+  <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
 </div>
 
 <div id="submitbutton">
-	<button type="submit">Upload Files</button>
+  <button type="submit">Upload Files</button>
 </div>
 
 </fieldset>

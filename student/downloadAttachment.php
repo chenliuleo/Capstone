@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>Homework Submission System</title>
+    <style>
+      p,a{
+      font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
   </head>
   <body>
 <?php
@@ -25,8 +30,8 @@ foreach($file_array as $file_id){
   echo "<a href=\"http://turing.slu.edu/~lchen22/cgi-bin/download.py?name=/export/mathcs/home/student/l/lchen22/WWW/upload/$name\">$name</a>";
 }  
 }
-else {echo "There is no attached file.";}
-echo "<br><a href=\"sCourse.php?id=$cid\">Back</a>";
+else {echo "<p>There is no attached file.";}
+echo "<br></p><a href=\"sCourse.php?id=$cid\">Back</a>";
 ?>
   </body>
 </html>
