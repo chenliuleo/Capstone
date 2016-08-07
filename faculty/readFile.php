@@ -1,5 +1,8 @@
 <html>
 <head>
+  <style>
+    p{font-family: Arial, Helvetica, sans-serif;}
+  </style>
 </head>
 <body>
 <form action="" method="post"
@@ -15,7 +18,7 @@ include('conn.php');
 $course_id = $_GET['id'];
 $course_sql = mysql_query("select * from courses where id='$course_id'");
 $course_array = mysql_fetch_array($course_sql);
-echo "Course Name: " . $course_array['name'];
+echo "<p>Course Name: " . $course_array['name'];
 echo "<br>";
 echo "Section: " . $course_array['section'];
 echo "<br>";
@@ -23,23 +26,23 @@ echo "Description: " . $course_array['description'];
 echo "<br>";
 echo "Semester and year: " . $course_array['semester'] . " " . $course_array['course_year'];
 echo "<br>";
-echo "<hr>";
+echo "</p><hr>";
 if ($_FILES["file"]["error"] > 0)
   {
   echo "Error: " . $_FILES["file"]["error"] . "<br />";
   }
 else
   {
-  echo "File name: " . $_FILES["file"]["name"] . "<br />";
+  echo "<p>File name: " . $_FILES["file"]["name"] . "<br />";
   echo "File type: " . $_FILES["file"]["type"] . "<br />";
   echo "File size: " . $_FILES["file"]["size"] . " bytes<br />";
-  echo "Temp file stored in: " . $_FILES["file"]["tmp_name"] . $_FILES["file"]["name"] . "<br />";
+  echo "Temp file stored in: " . $_FILES["file"]["tmp_name"] . $_FILES["file"]["name"] . "</p><br/>";
   move_uploaded_file($_FILES["file"]["tmp_name"],
   "/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"]);
-  echo "File stored in: " . "/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"];
+  echo "<p>File stored in: " . "/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"];
   //rename("/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"],
   //"/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"]);
-  echo "<br>Upload successful!<br>";
+  echo "<br>Upload successful!<br></p>";
   $filename = $_FILES["file"]["name"];
   echo "<hr>";
   }
@@ -78,7 +81,7 @@ if($count > 0){
     echo "Total " . $count . " students imported!";
   }
 }
-else echo "Import failed!";
+else echo "<p>Import failed!</p>";
 
 ?>
 </body>
