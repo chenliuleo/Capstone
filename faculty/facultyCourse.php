@@ -70,7 +70,7 @@
       echo "<td>" . "<a href=\"../upload_file2.php?hwid=$hwid&uid=$uid\">Upload files</a>" . "</td>";
       echo "<td>" . "<a href=\"manageFiles.php?hwid=$hwid&uid=$uid&id=$course_id\">link</a>" . "</td>";
       echo "<td>" . "<a href=\"allStudent.php?hwid=$hwid&id=$course_id\">link</a>" . "</td>";
-      echo "<td>" . "" . "</td>";
+      echo "<td>" . "<a href=\"editHomework.php?hwid=$hwid&uid=$uid&id=$course_id\">link</a>" . "</td>";
       echo "</tr>";
     }
     echo "</table>";

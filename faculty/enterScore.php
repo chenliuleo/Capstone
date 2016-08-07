@@ -14,7 +14,8 @@ $feedback = $_GET['feedback'];
 //echo $earned_points;
 //echo $feedback;
 $sql = mysql_query("update homework_students set earned_points='$earned_score' where student_id='$student_id' and homework_id='$homework_id'");
-$sql2 = mysql_query("update homework_students set feedback='$feedback' where student_id='$student_id' and homework_id='$homework_id'");echo "<script>window.location.href=\"studentGrade.php?id=$course_id&banner=$banner_id\"</script>";
+$sql2 = mysql_query("update homework_students set feedback='$feedback' where student_id='$student_id' and homework_id='$homework_id'");
+echo "<script>window.location.href=\"studentGrade.php?id=$course_id&banner=$banner_id\"</script>";
 ?>
 </body>
 </html>
