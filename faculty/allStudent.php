@@ -1,7 +1,15 @@
 <html>
 <head>
 <style>
-  p{font-family: Arial, Helvetica, sans-serif;}
+  p,table{font-family: Arial, Helvetica, sans-serif;}
+  table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  }
+  th, td {
+  padding: 5px;
+  }
 </style>
 </head>
 <body>
@@ -27,14 +35,14 @@ $student_list = Array();
 while ($student_array = mysql_fetch_row($student_sql)){
   array_push($student_list,$student_array[0]);
 }
-echo "Homework Title: " . $title;
+echo "<p>Homework Title: " . $title;
 echo "<br>";
 echo "Description: " . $description;
 echo "<br>";
 echo "Deadline: " . $deadline;
 echo "<br>";
 echo "<a href=\"manageFiles.php?hwid=$homework_id&uid=$uid&id=$course_id\">Attachment</a>";
-echo "<br>";
+echo "<br></p>";
 echo "<hr>";
 echo "<table border='1'>
       <tr>
