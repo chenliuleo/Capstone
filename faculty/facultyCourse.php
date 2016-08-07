@@ -17,10 +17,16 @@
   </head>
   <body>
   <?php
+    session_start();
+    include ('conn.php');
     //echo $_GET['id'];
     $course_id = $_GET['id'];
+    $username = $_SESSION['username'];
+    $user_info = mysql_query("select * from users where username='$username'");
+    $user_info_ = mysql_fetch_array($user_info);
+    $uid = $user_info_['id'];
     //echo $course_id;
-    include ('conn.php');
+
     $mysql_query = mysql_query("select * from courses where id='$course_id'");
     $course = mysql_fetch_array($mysql_query);
     echo "<div style='text-align:left;'><font color='#003DA5'>Term: ";
@@ -49,6 +55,9 @@
     <th>Deadline</th>
     <th>Points</th>
     <th>Attached files</th>
+    <th>Manage Attachment</th>
+    <th>All Students</th>
+    <th>Edit Homework</th>
     </tr>";
     while ($homework = mysql_fetch_array($mysql_query2))
     {
@@ -57,7 +66,11 @@
       echo "<td>" . $homework['description'] . "</td>";
       echo "<td>" . $homework['deadline'] . "</td>";
       echo "<td>" . $homework['total_points'] . "</td>";
-      echo "<td>" . $homework['attached_files'] . "</td>";
+      $hwid = $homework['id'];
+      echo "<td>" . "<a href=\"../upload_file2.php?hwid=$hwid&uid=$uid\">Upload files</a>" . "</td>";
+      echo "<td>" . "<a href=\"manageFiles.php?hwid=$hwid&uid=$uid&id=$course_id\">link</a>" . "</td>";
+      echo "<td>" . "<a href=\"allStudent.php?hwid=$hwid&id=$course_id\">link</a>" . "</td>";
+      echo "<td>" . "" . "</td>";
       echo "</tr>";
     }
     echo "</table>";

@@ -39,10 +39,7 @@
     <th>Deadline</th>
     <th>Earned Points</th>
     <th>Total Points</th>
-    <th>Files</th>
-    <th>Note</th>
-    <th>Feedback</th>
-    <th>Edit & Download</th>
+    <th>Score, Feedback and Download</th>
     </tr>";
     $mysql_query3 = mysql_query("select id from homework where course_id='$course_id'");
     $newarray = Array();
@@ -64,9 +61,6 @@
       echo "<td>" . $deadline . "</td>";
       echo "<td>" . $student_homework['earned_points'] . "</td>";
       echo "<td>" . $total_points . "</td>";
-      echo "<td>Files</td>";
-      echo "<td>" . $student_homework['note'] . "</td>";
-      echo "<td>" . $student_homework['feedback'] . "</td>";
       /*echo "<script>
 	    function enterScore() { 
 	    var score = prompt(\"Please enter score\", \"\");
@@ -76,7 +70,7 @@
 	    </script>";
       //echo "<script type="text/javascript">enterScore();</script>";
       //$temp = "&hwid=$list";*/
-      echo "<td><a href=\"studentHomework.php?id=$course_id&banner=$banner_id&stdid=$student_id&hwid=$list\">Click Here</a></td>";
+      echo "<td><a href=\"studentHomework.php?id=$course_id&banner=$banner_id&stdid=$student_id&hwid=$list\">Edit</a></td>";
       echo "</tr>";
     }
     echo "</table>";

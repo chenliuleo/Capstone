@@ -20,6 +20,8 @@ $student_homework_query = mysql_query("select * from homework_students where hom
 $student_homework = mysql_fetch_array($student_homework_query);
 $student_info_query = mysql_query("select * from users where id='$student_id'");
 $student_info = mysql_fetch_array($student_info_query);
+$score = $student_homework['earned_points'];
+$feedback = $student_homework['feedback'];
 
 echo "<p>Homework: " . $homework['title'] . "<br>";
 echo "Description: " . $homework['description'] . "<br>";
@@ -43,8 +45,8 @@ foreach($get_file_array as $fid){
 }
 echo "<hr>";
 echo "<form action=\"enterScore.php?id=$course_id&banner=$banner_id&hwid=$homework_id&stdid=$student_id\">";
-echo "<p>Enter Score: " . "<input id='earned_points' type='int' name='earned_points' /><br><br>";
-echo "Enter Feedback: " . "<br><textarea rows='4' cols='50' id='feedback' type='text' name='feedback'></textarea><br></p>";
+echo "<p>Enter Score: " . "<input id='earned_points' type='int' name='earned_points' value='$score' /><br><br>";
+echo "Enter Feedback: " . "<br><textarea rows='4' cols='50' id='feedback' type='text' name='feedback' >$feedback</textarea><br></p>";
 echo "<input type='hidden' name='id' value='$course_id' />";
 echo "<input type='hidden' name='banner' value='$banner_id' />";
 echo "<input type='hidden' name='hwid' value='$homework_id' />";
