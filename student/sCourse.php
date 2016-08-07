@@ -7,6 +7,7 @@
       table,p{
       font-family: Arial, Helvetica, sans-serif;
       }
+      p{color:blue; }
       table, th, td {
       border: 1px solid black;
       border-collapse: collapse;
