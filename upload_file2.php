@@ -12,7 +12,7 @@
 <form id="upload" action="" method="POST" enctype="multipart/form-data">
 
 <fieldset>
-<legend>HTML File Upload (Max. 5 files, Max. 1MB per file)</legend>
+<legend>File Upload (Max. 5 files, Max. 1MB per file)</legend>
 
 <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="1048576" />
 
