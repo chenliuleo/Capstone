@@ -53,15 +53,15 @@ $student_banner = array();
 
 if ($handle) {
     while (($buffer = fgets($handle, 4096)) !== false) {
-        var_dump($buffer);
+        //var_dump($buffer);
         array_push($student_banner,$buffer);
-        var_dump($student_banner);
+        //var_dump($student_banner);
     }
     if (!feof($handle)) {
         echo "Error: unexpected fgets() fail\n";
     }
     fclose($handle);
-   print_r($student_banner);
+   //print_r($student_banner);
 }
 $count = 0;
 function trim_value(&$value)
@@ -69,14 +69,14 @@ function trim_value(&$value)
   $value = trim($value);
 }
 array_walk($student_banner, 'trim_value');
-var_dump($student_banner);
+//var_dump($student_banner);
 foreach ($student_banner as $slist){
   $sql1 = mysql_query("select * from users where banner_id='$slist'");
-  var_dump($sql1);
+  //var_dump($sql1);
   $sql2 = mysql_fetch_array($sql1);
-  var_dump($sql2);
+  //var_dump($sql2);
   $sql3 = $sql2['id'];
-  var_dump($sql3);
+  //var_dump($sql3);
   $sql4 = mysql_query("insert into course_students(student_id,course_id) values('$sql3','$course_id')");
   $sql5 = $sql2['first_name'];
   $sql6 = $sql2['last_name'];
