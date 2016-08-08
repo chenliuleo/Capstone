@@ -3,6 +3,17 @@
 <html>
   <head>
     <title>Homework Submission System</title>
+    <style>
+      table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+      }
+      th, td {
+      padding: 5px;
+      }
+      table,p,a {font-family: Arial, Helvetica, sans-serif;}
+    </style>
   </head>
   <body>
   <!--<h3>Course this semester: <br></h3>
@@ -11,8 +22,8 @@
   <?php
   session_start();
   include('conn.php');
-  echo "Welcome!";
-  echo "<br>";
+  echo "<p>Welcome!</p>";
+  echo "<hr>";
   include('conn.php');
 $username = $_SESSION['username'];
 $user_query = mysql_query("select * from users where username='$username'");
@@ -53,7 +64,7 @@ foreach($cid as $tempcid){
   echo "<br>";
   echo "<a href='addACourse.php'>Add a course</a>";  
   echo "<br>";
-  echo "<a href='fDeleteCourse.php'>Delete a course</a>";
+  echo "<a href='fDeleteCourse.php'>Delete a course</a><br><hr>";
   ?>
   </body>
 </html>
