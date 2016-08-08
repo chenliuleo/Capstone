@@ -1,5 +1,40 @@
 <html>
 <head>
+  <script language=JavaScript>
+function InputCheck(RegForm)
+{
+  if (RegForm.username.value == "")
+  {
+    alert("Username cannot be empty!");
+    RegForm.username.focus();
+    return (false);
+  }
+  if (RegForm.password.value == "")
+  {
+    alert("Password cannot be empty!");
+    RegForm.password.focus();
+    return (false);
+  }
+  if (RegForm.repass.value != RegForm.password.value)
+  {
+    alert("Password doesn't match!");
+    RegForm.repass.focus();
+    return (false);
+  }
+  if (RegForm.email.value == "")
+  {
+    alert("Email address cannot be empty!");
+    RegForm.email.focus();
+    return (false);
+  }
+  if (RegForm.bannerid.value == "")
+  {
+    alert("Banner ID format error!");
+    RegForm.bannerid.focus();
+    return (false);
+  }
+}
+</script>
 </head>
 <body>
 <?php
@@ -56,87 +91,52 @@ echo "<input type='submit' value='Submit'>";
 echo "</form>";
 
 echo "<hr>";
-
-echo "<script language=JavaScript>";
-echo "function InputCheck(RegForm)";
-echo "{";
-echo "  if (RegForm.username.value == "")";
-echo "  {";
-echo "    alert(\"Username cannot be empty!\");";
-echo "    RegForm.username.focus();";
-echo "    return (false);";
-echo "  }";
-echo "  if (RegForm.password.value == \'\')";
-echo "  {";
-echo "    alert(\"Password cannot be empty!\");";
-echo "    RegForm.password.focus();";
-echo "    return (false);";
-echo "  }";
-echo "  if (RegForm.repass.value != RegForm.password.value)";
-echo "  {";
-echo "    alert(\"Password doesn't match!\");";
-echo "    RegForm.repass.focus();";
-echo "    return (false);";
-echo "  }";
-echo "  if (RegForm.email.value == \"\")";
-echo "  {;"
-echo "    alert(\"Email address cannot be empty!\");";
-echo "    RegForm.email.focus();";
-echo "    return (false);";
-echo "  }";
-echo "  if (RegForm.bannerid.value == \"\")";
-echo "  {";
-echo "    alert(\"Banner ID format error!\");";
-echo "    RegForm.bannerid.focus();";
-echo "    return (false);";
-echo "  }";
-echo "}";
-echo "</script>";
-echo "<div>";
-echo "<fieldset>";
-echo "<legend>User Sign Up</legend>";
-echo "<form name=\"RegForm\" method=\"post\" action=\"regAdmin.php\" onSubmit=\"return InputCheck(this)\">";
-echo "<p>";
-echo "<label for=\"username\" class=\"label\">Username:</label>";
-echo "<input id=\"username\" name=\"username\" type=\"text\" class=\"input\" />";
-echo "<span>(Use SLU email credential. (like gpeter12, not gpeter12@slu.edu))</span>";
-echo "<p/>";
-echo "<p>";
-echo "<label for=\"password\" class=\"label\">Password:</label>";
-echo "<input id=\"password\" name=\"password\" type=\"password\" class=\"input\" />";
-echo "<span>(Cannot be empty, 8 to 16 characters.)</span>";
-echo "<p/>";
-echo "<p>";
-echo "<label for=\"repass\" class=\"label\">Confirm password:</label>";
-echo "<input id=\"repass\" name=\"repass\" type=\"password\" class=\"input\" />";
-echo "<p/>";
-echo "<p>";
-echo "<label for=\"bannerid\" class=\"label\">Banner ID:</label>";
-echo "<input id=\"bannerid\" name=\"bannerid\" type=\"text\" class=\"input\" />";
-echo " <span>(Cannot be empty, including \"000\".)</span>";
-echo "<p/>";
-echo "<p>";
-echo "<label for=\"first_name\" class=\"label\">First Name:</label>";
-echo "<input id=\"first_name\" name=\"first_name\" type=\"text\" class=\"input\" />";
-echo "<span>(Cannot be empty.)</span>";
-echo "<p/>";
-echo "<p>";
-echo "<label for=\"last_name\" class=\"label\">Last Name:</label>";
-echo "<input id=\"last_name\" name=\"last_name\" type=\"text\" class=\"input\" />";
-echo "<span>(Cannot be empty.)</span>";
-echo "<p/>";
-echo "<p>";
-echo "<label for=\"user_type\" class=\"label\">User Type:</label>";
-echo "<input type=\"radio\" name=\"userType\" value=\"Student\"> Student";
-echo "<input type=\"radio\" name=\"userType\" value=\"Faculty\"> Faculty<br>";
-
-echo "<p/>";
-echo "<p>";
-echo "<input type=\"submit\" name=\"submit\" value=\"Submit\" class=\"left\" />";
-echo "</p>";
-echo "</form>";
-echo "</fieldset>";
-echo "</div>";
 ?>
+<div>
+<fieldset>
+<legend>User Sign Up</legend>
+<form name="RegForm" method="post" action="reg.php" onSubmit="return InputCheck(this)">
+<p>
+<label for="username" class="label">Username:</label>
+<input id="username" name="username" type="text" class="input" />
+<span>(Use SLU email credential. (like gpeter12, not gpeter12@slu.edu))</span>
+<p/>
+<p>
+<label for="password" class="label">Password:</label>
+<input id="password" name="password" type="password" class="input" />
+<span>(Cannot be empty, 8 to 16 characters.)</span>
+<p/>
+<p>
+<label for="repass" class="label">Confirm password:</label>
+<input id="repass" name="repass" type="password" class="input" />
+<p/>
+<p>
+<label for="bannerid" class="label">Banner ID:</label>
+<input id="bannerid" name="bannerid" type="text" class="input" />
+ <span>(Cannot be empty, including "000".)</span>
+<p/>
+<p>
+<label for="first_name" class="label">First Name:</label>
+<input id="first_name" name="first_name" type="text" class="input" />
+<span>(Cannot be empty.)</span>
+<p/>
+<p>
+<label for="last_name" class="label">Last Name:</label>
+<input id="last_name" name="last_name" type="text" class="input" />
+<span>(Cannot be empty.)</span>
+<p/>
+<p>
+<label for="user_type" class="label">User Type:</label>
+<!--<input type="text" name="user_type" id="user_type"/>-->
+<input type="radio" name="userType" value="Student"> Student
+<input type="radio" name="userType" value="Faculty"> Faculty<br>
+
+<p/>
+<p>
+<input type="submit" name="submit" value="Submit" class="left" />
+</p>
+</form>
+</fieldset>
+</div>
 </body>
 </html>
