@@ -68,7 +68,7 @@ function trim_value(&$value)
 {
   $value = trim($value);
 }
-array_walk($student_banner);
+array_walk($student_banner, 'trim_value');
 var_dump($student_banner);
 foreach ($student_banner as $slist){
   $sql1 = mysql_query("select * from users where banner_id='$slist'");
