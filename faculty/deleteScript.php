@@ -3,7 +3,7 @@ session_start();
 $name=$_GET['deleteStudent'];
 include ('conn.php');
 $username = $_SESSION['username'];
-$course_id = $_GET['cid'];
+$course_id = $_SESSION['course_id'];
 var_dump($name);
 echo "<br>";
 var_dump($course_id);
