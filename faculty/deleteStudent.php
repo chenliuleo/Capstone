@@ -21,6 +21,7 @@
     include ('conn.php');
     //echo $_GET['id'];
     $course_id = $_GET['id'];
+    $_SESSION['course_id'] = $course_id;
     $username = $_SESSION['username'];
     $user_info = mysql_query("select * from users where username='$username'");
     $user_info_ = mysql_fetch_array($user_info);
