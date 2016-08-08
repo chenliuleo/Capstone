@@ -12,7 +12,7 @@
       th, td {
       padding: 5px;
       }
-      table,p,a {font-family: Arial, Helvetica, sans-serif;}
+      table,a,h1 {font-family: Arial, Helvetica, sans-serif;}
     </style>
   </head>
   <body>
@@ -22,7 +22,7 @@
   <?php
   session_start();
   include('conn.php');
-  echo "<p>Welcome!</p>";
+  echo "<h1>Welcome!</h1>";
   echo "<hr>";
   include('conn.php');
 $username = $_SESSION['username'];
