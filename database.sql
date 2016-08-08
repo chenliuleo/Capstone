@@ -9,7 +9,7 @@ CREATE TABLE users (
 	last_name NVARCHAR(32),
 	password NVARCHAR(40),
 	banner_id NVARCHAR(9),
-	user_type ENUM('Student', 'Faculty') -- student = 1, faculty = 2
+	user_type ENUM('Student', 'Faculty', 'Admin') -- student = 1, faculty = 2
 );
 
 CREATE TABLE courses (

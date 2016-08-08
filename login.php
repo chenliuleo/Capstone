@@ -43,6 +43,10 @@ if($result = mysql_fetch_array($check_query)){
 	{
 	  echo "<meta http-equiv=\"refresh\" content=\"0; ./student/mainpage.html\" />";
 	}
+	elseif($row['user_type'] == 'Admin')
+	{
+	  echo "<meta http-equiv=\"refresh\" content=\"0; ./addCourseHtml.php\" />";
+	}
 	else
 	{
 	  echo "<meta http-equiv=\"refresh\" content=\"0; ./faculty/fMainpage.html\" />";

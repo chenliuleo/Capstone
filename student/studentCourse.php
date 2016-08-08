@@ -48,7 +48,7 @@
     $course_detail = mysql_query("select id,name,section,semester,course_year from courses where id='$cid'");
     $cdetail = mysql_fetch_array($course_detail);
     $var = $cdetail['id'];
-    $temp = $cdetail['name'] . "." . $cdetail['section'] . " " . $cdetail['semester'] . $cdetail['course_year'];
+    $temp = $cdetail['name'] . "." . $cdetail['section'] . "<br>" . $cdetail['semester'] . " " . $cdetail['course_year'];
     //echo $temp;
     echo "<li><center><a href=\"sCourse.php?id=$var\" target=\"main\">$temp</a><center></li>";
   }

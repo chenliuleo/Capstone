@@ -19,6 +19,7 @@ foreach($name as $temp){
   $courses_faculty = mysql_query("insert into courses_faculty (course_id, faculty_id) values ('$temp', '$id')");
   }
 
-$message="succes";
-echo "<script type='text/javscript'>alert('$message');</script>";  
+echo "<meta http-equiv='refresh' content='0; facultyHome.php' />";
+//$message="Add course succes!";
+//echo "<script type='text/javscript'>alert('$message');</script>";  
 ?>
