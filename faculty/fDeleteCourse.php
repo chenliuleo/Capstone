@@ -6,7 +6,7 @@ session_start();
 //  }
 //}
 include('conn.php');
-$username = $_SESSION['usernmae'];
+$username = $_SESSION['username'];
 $user_query = mysql_query("select * from users where username='$username'");
 $user_array = mysql_fetch_array($user_query);
 $uid = $user_array['id'];
