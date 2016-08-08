@@ -36,7 +36,7 @@ echo "<input type=\"submit\" name=\"submit\" value=\"Delete\">";
 echo "</form>"; 
 
 echo "<hr>";
-echo "<h1>Add a course:<h1><br>";
+echo "<h1>Add a course:</h1><br>";
 echo "<form action='addCourse.php' name='course' method='post'>";
 echo "Course number: (example format: CSCI1234)<br>";
 echo "<input id='name' name='name' type='text' maxlength='8' size='8'><br>";
