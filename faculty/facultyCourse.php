@@ -134,6 +134,8 @@
    echo "<a href=\"addHomework.php?id=$course_id\">Add homework</a>"; 
    echo "<br>";
    echo "<a href=\"readFile.php?id=$course_id\">Import students</a>"; 
+   echo "<br>";
+   echo "<a href=\"deleteStudent.php?id=$course_id\">Delete students</a>"; 
    ?>
 
    </body>
