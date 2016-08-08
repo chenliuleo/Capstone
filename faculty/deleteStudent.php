@@ -45,7 +45,6 @@
     echo "</div>";
     echo "<br>";
     echo "<hr></font>";
-    echo "<p>Homework:</p>";
     echo "<p>Student List: </p>";
     echo "<table border='1'>
     <tr>
