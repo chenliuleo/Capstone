@@ -75,7 +75,7 @@ echo "<h1>Add a course:</h1><br>";
 echo "<form action='addCourse.php' name='course' method='post'>";
 echo "Course number: (example format: CSCI1234)<br>";
 echo "<input id='name' name='name' type='text' maxlength='8' size='8'><br>";
-echo "Course title: (example format: 01)<br>";
+echo "Course section: (example format: 01)<br>";
 echo "<input id='section' name='section' type='text' maxlength='2' size='2'><br>";
 echo "Course title:<br>";
 echo "<input id='description' name='description'><br>";
