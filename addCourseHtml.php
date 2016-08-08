@@ -6,7 +6,7 @@
 session_start();
 include('conn.php');
 $query = mysql_query("select * from courses");
-echo "<h1>Delete courses: </h1><br>"
+echo "<h1>Delete courses: </h1><br>";
 echo "<table border='1'>
 <tr>
 <th>Name and Section</th>
