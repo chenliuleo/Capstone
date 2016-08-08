@@ -11,7 +11,7 @@ echo "<input id='name' name='name' type='text' maxlength='8' size='8'><br>";
 echo "Course title: (example format: 01)<br>";
 echo "<input id='section' name='section' type='number' maxlength='2' size='2'><br>";
 echo "Course title:<br>";
-echo "<input id='description' name='description'<br>";
+echo "<input id='description' name='description'><br>";
 echo "Year: (example format: 2016)<br>";
 echo "<input id='course_year' name='course_year' type='number' maxlength='4' size='4'><br>";
 echo "Semester: (example format: 'Spring', 'Summer', 'Fall')<br>";
