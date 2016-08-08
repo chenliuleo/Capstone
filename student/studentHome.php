@@ -4,7 +4,7 @@
   <head>
     <title>Homework Submission System</title>
     <style type="text/css">
-      p,table {
+      p,table,h1 {
       font-family: Arial, Helvetica, sans-serif;
       }
       table, th, td {
