@@ -42,7 +42,7 @@ elseif($_FILES["file"]["name"] != "")
   echo "<p>File stored in: " . "/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"];
   //rename("/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"],
   //"/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"]);
-  echo "<br>Upload successful!<br></p>";
+  echo "<br>File upload successful!<br></p>";
   $filename = $_FILES["file"]["name"];
   echo "<hr>";
   }
@@ -70,6 +70,9 @@ function trim_value(&$value)
 }
 array_walk($student_banner, 'trim_value');
 //var_dump($student_banner);
+if($student_banner == ""){
+  echo "No valid data in the file!";
+}
 foreach ($student_banner as $slist){
   $sql1 = mysql_query("select * from users where banner_id='$slist'");
   //var_dump($sql1);
