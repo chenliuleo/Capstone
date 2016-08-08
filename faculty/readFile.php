@@ -87,7 +87,7 @@ foreach ($student_banner as $slist){
   $sql6 = $sql2['last_name'];
   echo $slist . " " . $sql5 . " " . $sql6 . " read!";
   echo "<br>";
-  if ($sql5 || $sql6 == ""){
+  if ($sql5 or $sql6 == ""){
     echo $slist . " imported failed!";
   }
   else{
