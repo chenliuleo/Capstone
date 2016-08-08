@@ -94,7 +94,7 @@ foreach ($student_banner as $slist){
   }
   else{
     $count += 1;
-    echo $slist . " " . $sql5 . " " . $sql6 . " imported!"
+    echo $slist . " " . $sql5 . " " . $sql6 . " imported!";
   }
 }
 if($count > 0){
