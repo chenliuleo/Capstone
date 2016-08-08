@@ -87,14 +87,14 @@ foreach ($student_banner as $slist){
   $sql6 = $sql2['last_name'];
   echo $slist . " " . $sql5 . " " . $sql6 . " read!";
   echo "<br>";
-  var_dump($sql5);
-  var_dump($sql6);
+  //var_dump($sql5);
+  //var_dump($sql6);
   if (($sql5 == "") or ($sql6 == "")){
-    echo $slist . " imported failed!";
+    echo $slist . " imported failed!<br><br>";
   }
   else{
     $count += 1;
-    echo $slist . " " . $sql5 . " " . $sql6 . " imported!";
+    echo $slist . " " . $sql5 . " " . $sql6 . " imported!<br><br>";
   }
 }
 if($count > 0){
