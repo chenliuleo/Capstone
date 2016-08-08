@@ -69,7 +69,7 @@ function trim_value(&$value)
   $value = trim($value);
 }
 array_walk($student_banner, 'trim_value');
-//var_dump($student_banner);
+var_dump($student_banner);
 if($student_banner == ""){
   echo "No valid data in the file!";
 }
