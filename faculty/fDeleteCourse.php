@@ -23,7 +23,7 @@ echo "<table border='1'>
 <th>Year</th>
 <th>Select</th>
 </tr>";
-echo "<form method=\"get\" action=\"checkbox.php\">";
+echo "<form method=\"get\" action=\"fDelete.php\">";
 foreach($cid as $tempcid){
     $query = mysql_query("select * from courses where id='$tempcid'");
     while($row = mysql_fetch_array($query))
