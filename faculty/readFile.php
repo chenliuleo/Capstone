@@ -44,7 +44,7 @@ elseif($_FILES["file"]["name"] != "")
   //"/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"]);
   echo "<br>File upload successful!<br></p>";
   if($_FILES["file"]["size"] == 0){
-    echo "The file uploaded is empty!";
+    echo "<font color='red'>The file uploaded is empty!</font>";
   }
   $filename = $_FILES["file"]["name"];
   echo "<hr>";
@@ -90,7 +90,7 @@ foreach ($student_banner as $slist){
   //var_dump($sql5);
   //var_dump($sql6);
   if (($sql5 == "") or ($sql6 == "")){
-    echo $slist . " imported failed!<br><br>";
+    echo "<font color='red'>$slist imported failed!</font><br><br>";
   }
   else{
     $count += 1;
