@@ -4,10 +4,10 @@ $name=$_GET['deleteStudent'];
 include ('conn.php');
 $username = $_SESSION['username'];
 $course_id = $_GET['cid']
+var_dump($name);
+echo "<br>";
+var_dump($course_id);
 //echo $username;
-$user_query = mysql_query("select id from users where username='$username' limit 1");
-$row = mysql_fetch_array($user_query);
-$id = $row['id'];
 //echo $id;
 foreach($name as $temp){
 //  echo $temp;
