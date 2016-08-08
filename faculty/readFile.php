@@ -64,9 +64,11 @@ if ($handle) {
 $count = 0;
 foreach ($student_banner as $slist){
   $sql1 = mysql_query("select * from users where banner_id='$slist'");
+  var_dump($sql1);
   $sql2 = mysql_fetch_array($sql1);
   var_dump($sql2);
   $sql3 = $sql2['id'];
+  var_dump($sql3);
   $sql4 = mysql_query("insert into course_students(student_id,course_id) values('$sql3','$course_id')");
   $sql5 = $sql2['first_name'];
   $sql6 = $sql2['last_name'];
