@@ -71,3 +71,4 @@ CREATE TABLE homework_students (
 )DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 ALTER TABLE homework ADD CONSTRAINT FOREIGN KEY (attached_files) REFERENCES files(id);
+INSERT INTO users(username,first_name,last_name,password,banner_id,user_type) values('csp_homework','Admin','Admin','e1becf479884049677c47d1d898cb28bf3981157','000000000','Admin');
