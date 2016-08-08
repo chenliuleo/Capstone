@@ -89,7 +89,7 @@ foreach ($student_banner as $slist){
   echo "<br>";
   var_dump($sql5);
   var_dump($sql6);
-  if ($sql5 or $sql6 == ""){
+  if (($sql5 == "") or ($sql6 == "")){
     echo $slist . " imported failed!";
   }
   else{
