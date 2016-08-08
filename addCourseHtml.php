@@ -5,6 +5,38 @@
 <?php
 session_start();
 include('conn.php');
+$query = mysql_query("select * from courses");
+echo "<h1>Delete courses: </h1><br>"
+echo "<table border='1'>
+<tr>
+<th>Name and Section</th>
+<th>Semester</th>
+<th>Year</th>
+<th>Description</th>
+<th>Start date</th>
+<th>End Date</th>
+<th>Select</th>
+</tr>";
+echo "<form method=\"get\" action=\"deleteCourse.php\">";
+while($row = mysql_fetch_array($query))
+  {
+  echo "<tr>";
+  echo "<td>" . $row['name'] . "." . $row['section'] . "</td>";
+  echo "<td>" . $row['semester'] . "</td>";
+  echo "<td>" . $row['course_year'] . "</td>";
+  echo "<td>" . $row['description'] . "</td>";
+  echo "<td>" . $row['start_date'] . "</td>";
+  echo "<td>" . $row['end_date'] . "</td>";
+  //$id = $row['id'];
+  echo "<td><input type=\"CHECKBOX\" name=\"newCourse[]\" id=\"newCourse\" value=\"$row[id]\"></td>";
+  echo "</tr>";
+  }
+echo"</table>";
+echo "<input type=\"submit\" name=\"submit\" value=\"Delete\">";
+echo "</form>"; 
+
+echo "<hr>";
+echo "<h1>Add a course:<h1><br>";
 echo "<form action='addCourse.php' name='course' method='post'>";
 echo "Course number: (example format: CSCI1234)<br>";
 echo "<input id='name' name='name' type='text' maxlength='8' size='8'><br>";
