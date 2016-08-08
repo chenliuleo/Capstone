@@ -15,7 +15,9 @@
   echo "<br>";
   //echo "Coming due: ";
   echo "<br>";
-  echo "<a href='addACourse.php'>Add a course</a>";
+  echo "<a href='addACourse.php'>Add a course</a>";  
+  echo "<br>";
+  echo "<a href='fDeleteCourse.php'>Delete a course</a>";
   ?>
   </body>
 </html>
