@@ -59,7 +59,7 @@ if ($handle) {
         echo "Error: unexpected fgets() fail\n";
     }
     fclose($handle);
-   //print_r($student_banner);
+   print_r($student_banner);
 }
 $count = 0;
 foreach ($student_banner as $slist){
