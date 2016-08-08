@@ -31,7 +31,7 @@ if ($_FILES["file"]["error"] > 0)
   {
   echo "Error: " . $_FILES["file"]["error"] . "<br />";
   }
-else
+elseif($_FILES["file"]["name"] != "")
   {
   echo "<p>File name: " . $_FILES["file"]["name"] . "<br />";
   echo "File type: " . $_FILES["file"]["type"] . "<br />";
