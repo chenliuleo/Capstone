@@ -36,7 +36,7 @@ elseif($_FILES["file"]["name"] != "")
   echo "<p>File name: " . $_FILES["file"]["name"] . "<br />";
   echo "File type: " . $_FILES["file"]["type"] . "<br />";
   echo "File size: " . $_FILES["file"]["size"] . " bytes<br />";
-  echo "Temp file stored in: " . $_FILES["file"]["tmp_name"] . $_FILES["file"]["name"] . "</p><br/>";
+  echo "Temp file stored in: " . $_FILES["file"]["tmp_name"] . $_FILES["file"]["name"] . "</p>";
   move_uploaded_file($_FILES["file"]["tmp_name"],
   "/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"]);
   echo "<p>File stored in: " . "/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"];
