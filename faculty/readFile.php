@@ -80,9 +80,14 @@ foreach ($student_banner as $slist){
   $sql4 = mysql_query("insert into course_students(student_id,course_id) values('$sql3','$course_id')");
   $sql5 = $sql2['first_name'];
   $sql6 = $sql2['last_name'];
-  echo $slist . " " . $sql5 . " " . $sql6 . " imported!";
+  echo $slist . " " . $sql5 . " " . $sql6 . " read!";
   echo "<br>";
-  $count += 1;
+  if ($sql5 || $sql6 == ""){
+    echo $slist . " imported failed!";
+  }
+  else{
+    $count += 1;
+  }
 }
 if($count > 0){
   if($count == 1) {
@@ -92,7 +97,7 @@ if($count > 0){
     echo "Total " . $count . " students imported!";
   }
 }
-else echo "<p>Import failed!</p>";
+//else echo "<p>Import failed!</p>";
 
 ?>
 </body>
