@@ -43,11 +43,13 @@ elseif($_FILES["file"]["name"] != "")
   //rename("/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"],
   //"/export/mathcs/home/student/l/lchen22/WWW/upload/" . $_FILES["file"]["name"]);
   echo "<br>File upload successful!<br></p>";
+  if($_FILES["file"]["size"] == 0){
+    echo "The file uploaded is empty!";
+  }
   $filename = $_FILES["file"]["name"];
   echo "<hr>";
   }
 //echo "<input type=\"file\" id=\"file\" name=\"file[]\"/>";
-
 $handle = @fopen("/export/mathcs/home/student/l/lchen22/WWW/upload/$filename", "r");
 $student_banner = array();
 
@@ -69,10 +71,10 @@ function trim_value(&$value)
   $value = trim($value);
 }
 array_walk($student_banner, 'trim_value');
-var_dump($student_banner);
-if($student_banner == ""){
+//var_dump($student_banner);
+/*if($student_banner == ""){
   echo "No valid data in the file!";
-}
+}*/
 foreach ($student_banner as $slist){
   $sql1 = mysql_query("select * from users where banner_id='$slist'");
   //var_dump($sql1);
