@@ -11,7 +11,7 @@ $id = $row['id'];
 //echo $id;
 foreach($name as $temp){
 //  echo $temp;
-  $courses_faculty = mysql_query("delete from course_students where student_id=$temp and course_id=$course_id");
+  $courses_faculty = mysql_query("delete from course_students where student_id='$temp' and course_id='$course_id'");
   }
 echo "<meta http-equiv='refresh' content='0; deleteStudent.php?id=$course_id' />";
 //$message="Add course succes!";
