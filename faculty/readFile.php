@@ -53,7 +53,9 @@ $student_banner = array();
 
 if ($handle) {
     while (($buffer = fgets($handle, 4096)) !== false) {
+        var_dump($buffer);
         array_push($student_banner,$buffer);
+        var_dump($student_banner);
     }
     if (!feof($handle)) {
         echo "Error: unexpected fgets() fail\n";
